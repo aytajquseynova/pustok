@@ -33,7 +33,7 @@
                                 address</a>
                             <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account
                                 Details</a>
-                            <a href="{{route('client.logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            <a href="{{route('auth.logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </div>
                     <!-- My Account Tab Menu End -->
@@ -48,12 +48,12 @@
                                         <p>Hello, <strong>{{ auth()->user()->name }}</strong> (If Not <strong>{{ auth()->user()->name }}
                                                 !</strong><a href="{{route('auth.logout')}}" class="logout">
                                                 Logout</a>)</p>
-                                                <p class="mb-0">From your account dashboard. you can easily check &amp; view
+                                    </div>
+                                    <p class="mb-0">From your account dashboard. you can easily check &amp; view
                                         your
                                         recent orders, manage your shipping and billing addresses and edit your
                                         password and account details.</p>
-                                    </div>
-
+                                </div>
                             </div>
                             <!-- Single Tab Content End -->
                             <!-- Single Tab Content Start -->
@@ -226,28 +226,28 @@
                 {"breakpoint":320, "settings": {"slidesToShow": 1} }
             ]'>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-1.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-2.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-3.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-3.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-4.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-4.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-5.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-5.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-6.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-6.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-1.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="{{asset('assets/front/imageothers/brand-2.jpg')}}" alt="">
+                <img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
             </div>
         </div>
     </div>

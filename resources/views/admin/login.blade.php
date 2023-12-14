@@ -3,14 +3,14 @@
 
 @include('admin.layout.partials.head')
 
-
+<body>
 
 
     <body class="hold-transition login-page">
 
         <div class="login-box" style="margin:auto;  padding-top: 100px; ">
             <div class="login-logo">
-                <a href="{{route('auth')}}"><b>Admin</b> Rena</a>
+                <a href="{{route('auth')}}"><b>Admin</b> Aytaj</a>
             </div>
             <!-- /.login-logo -->
             <div class="card">
@@ -60,6 +60,6 @@
     </body>
 
 
-
+</body>
 
 </html>

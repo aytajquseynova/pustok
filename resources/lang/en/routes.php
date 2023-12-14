@@ -1,7 +1,9 @@
 <?php
-
-return[
-    'home'=>'home',
-    'shop'=>'shop',
-    'contact'=>'contact'
+return [
+    'home' => 'home',
+    'shop' => 'shop',
+    'contact'=>'contact',
+    'address' => 'address',
+    'phone' => 'phone',
+    'email' => 'email',  
 ];

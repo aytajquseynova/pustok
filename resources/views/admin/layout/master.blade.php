@@ -1,29 +1,28 @@
-@include("admin.layout.partials.head")
-
+@include('admin.layout.partials.head')
 
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+    <div class="wrapper">
+        <x-admin-header-component />
 
- 
- 
-  <x-admin-header-component/>
+    
 
-  
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
+        <!-- /.content-wrapper -->
 
-  @yield('content')
+        <x-admin-footer-component />
 
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
 
-  <x-admin-footer-component/>
-
-
-  <!-- Control Sidebar -->
- 
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-@include('admin.layout.partials.foot')
-
+    @include('admin.layout.partials.foot')
 </body>
+
 </html>

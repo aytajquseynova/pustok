@@ -43,7 +43,7 @@
                                     <tr>
                                         <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
-                                        <td class="pro-thumbnail"><a href="#"><img src="assets/front/image/products/product-1.jpg" alt="Product"></a></td>
+                                        <td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="Product"></a></td>
                                         <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
                                         <td class="pro-price"><span>$395.00</span></td>
                                         <td class="pro-quantity">
@@ -59,7 +59,7 @@
                                     <tr>
                                         <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
-                                        <td class="pro-thumbnail"><a href="#"><img src="assets/front/image/products/product-2.jpg" alt="Product"></a></td>
+                                        <td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="Product"></a></td>
                                         <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
                                         <td class="pro-price"><span>$395.00</span></td>
                                         <td class="pro-quantity">
@@ -105,15 +105,15 @@
                                     <span class="author">
                                         Lpple
                                     </span>
-                                    <h3><a href="{{route('client.product-detail')}}">Revolutionize Your BOOK With These
+                                    <h3><a href="{{route('client.productDetails')}}">Revolutionize Your BOOK With These
                                             Easy-peasy Tips</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
-                                        <img src="assets/front/image/products/product-10.jpg" alt="">
+                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.product-detail')}}" class="hover-image">
-                                                <img src="assets/front/image/products/product-1.jpg" alt="">
+                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                             </a>
                                             <div class="hover-btns">
                                                 <a href="{{route('client.cart')}}" class="single-btn">
@@ -145,14 +145,14 @@
                                     <span class="author">
                                         Jpple
                                     </span>
-                                    <h3><a href="{{route('client.product-detail')}}">Turn Your BOOK Into High Machine</a></h3>
+                                    <h3><a href="{{route('client.productDetails')}}">Turn Your BOOK Into High Machine</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
-                                        <img src="assets/front/image/products/product-2.jpg" alt="">
+                                        <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.product-detail')}}" class="hover-image">
-                                                <img src="assets/front/image/products/product-1.jpg" alt="">
+                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                             </a>
                                             <div class="hover-btns">
                                                 <a href="{{route('client.cart')}}" class="single-btn">
@@ -184,14 +184,14 @@
                                     <span class="author">
                                         Wpple
                                     </span>
-                                    <h3><a href="{{route('client.product-detail')}}">3 Ways Create Better BOOK With</a></h3>
+                                    <h3><a href="{{route('client.productDetails')}}">3 Ways Create Better BOOK With</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
-                                        <img src="assets/front/image/products/product-3.jpg" alt="">
+                                        <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.product-detail')}}" class="hover-image">
-                                                <img src="assets/front/image/products/product-2.jpg" alt="">
+                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
                                             </a>
                                             <div class="hover-btns">
                                                 <a href="{{route('client.cart')}}" class="single-btn">
@@ -223,14 +223,14 @@
                                     <span class="author">
                                         Epple
                                     </span>
-                                    <h3><a href="{{route('client.product-detail')}}">What You Can Learn From Bill Gates</a>
+                                    <h3><a href="{{route('client.productDetails')}}">What You Can Learn From Bill Gates</a>
                                     </h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
                                         <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.product-detail')}}" class="hover-image">
+                                            <a href="{{route('client.productDetails')}}" class="hover-image">
                                                 <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
                                             </a>
                                             <div class="hover-btns">
@@ -263,13 +263,13 @@
                                     <span class="author">
                                         Hpple
                                     </span>
-                                    <h3><a href="{{route('client.product-detail')}}">Simple Things You To Save BOOK</a></h3>
+                                    <h3><a href="{{route('client.productDetails')}}">Simple Things You To Save BOOK</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
-                                        <img src="assets/front/image/products/product-6.jpg" alt="">
+                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.product-detail')}}" class="hover-image">
+                                            <a href="{{route('client.productDetails')}}" class="hover-image">
                                                 <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
                                             </a>
                                             <div class="hover-btns">
@@ -337,28 +337,28 @@
                 {"breakpoint":320, "settings": {"slidesToShow": 1} }
             ]'>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-1.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-2.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-3.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-3.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-4.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-4.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-5.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-5.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-6.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-6.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-1.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
             </div>
             <div class="single-slide">
-                <img src="assets/front/image/others/brand-2.jpg" alt="">
+                <img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
             </div>
         </div>
     </div>
