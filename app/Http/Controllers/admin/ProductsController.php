@@ -48,9 +48,18 @@ class ProductsController extends Controller
 }
     public function product_images($id){
         $images=Images::where('product_id', $id)->get();
-        return view('admin.product_images.index',compact('images'));
-
-
-
+        return view('admin.product_images.index',compact('images','id'));
     }
+
+    public function add_main_image($id, $product_id){
+        $findedImages=Images::where('product_id', $product_id);
+        $updated=$findedImages->update(['is_main'=>0]);
+        if($updated){
+            $image=Images::findOrFail($id);
+            $reupdated=$image->update(['is_main'=>1]);
+            if($reupdated){
+            return redirect()->back();
+        }
+        }
+}
 }

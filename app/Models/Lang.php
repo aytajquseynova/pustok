@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Lang extends Model
 {
     use HasFactory;
-    public $timestamps = false;
-    protected $guarded = [];
+    public $timetamps = false;
+    protected $guarded=[];
 }

@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
-<div class="content-wrapper">
+
   <div class="card-body">
     <a href="{{route('admin.products.create')}}" class="btn btn-success mb-3">create</a>
     <table class="table table-bordered">
@@ -22,7 +22,10 @@
           <td>{{$product->author}}</td>
           <td>{{$product->title}}</td>
           <td>
-            <img src="{{asset($product->main_image)}}" alt="">
+            <a target="_blank" href="{{asset($product->main_image($product->images))}}">
+              <img style="width: 150px; object-fit:cover;" src="{{asset($product->main_image($product->images))}}" alt="">
+
+            </a>
           </td>
           <td>{{$product->price}}</td>
           <td>{{$product->percent}}</td>
@@ -40,5 +43,5 @@
       </tbody>
     </table>
   </div>
-</div>
+
 @endsection

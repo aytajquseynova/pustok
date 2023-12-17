@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
-<div class="content-wrapper">
+
   <div class="card card-primary" style="margin-left:10px">
     <div class="card-header">
       <h3 class="card-title">Quick Example</h3>
@@ -36,5 +36,5 @@
       </div>
     </form>
   </div>
-</div>
+
 @endsection

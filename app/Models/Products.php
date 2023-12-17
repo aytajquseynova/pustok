@@ -20,4 +20,15 @@ class Products extends Model
           }
         }
     }
+
+    public function main_image($images){
+      if($images){
+        foreach($images as $image){
+          if($image->is_main){
+            return $image->img;
+          }
+        }
+      }
+    }
+
 }
