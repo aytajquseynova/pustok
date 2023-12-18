@@ -53,7 +53,7 @@
                             </div>
                             @enderror
                             <div class="col-md-12">
-                                <button  class="btn btn-outlined">Register</button>
+                                <button class="btn btn-outlined">Register</button>
                             </div>
                         </div>
                     </div>

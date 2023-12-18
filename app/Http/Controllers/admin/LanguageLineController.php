@@ -5,8 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\TranslationLoader\LanguageLine;
-use App\Models\Lang;
-use Illuminate\Support\Facades\Lang as FacadesLang;
+
 
 class LanguageLineController extends Controller
 {

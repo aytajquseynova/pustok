@@ -45,6 +45,7 @@ Route::group(['prefix' => '', 'as' => 'auth.'], function () {
     Route::get('/logout', [LogOutController::class, 'logout'])->name('logout');
 });
 
+
 Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/shopList', [ShopListController::class, 'index'])->name('shopList');
@@ -70,10 +71,15 @@ Route::group([
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/login', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('categories', CategoriesController::class);
+
+
     Route::resource('/products', ProductsController::class);
     Route::get('/products/add_images/{id}', [ProductsController::class, 'products_add_image'])->name('products_add_image');
     Route::post('/products/store_images/{id}', [ProductsController::class, 'products_store_image'])->name('products_store_image');
     Route::get('/product_images/{id}', [ProductsController::class, 'product_images'])->name('product_images');
+    Route::get('/images/main/{id}/{product_id}', [ProductsController::class, 'add_main_image'])->name('add_main_image');
+
+
     Route::prefix('language-line')->controller(LanguageLineController::class)->group(function () {
         Route::get('/', 'index')->name('languageLine.index');
         Route::get('/create', 'create')->name('languageLine.create');
@@ -84,17 +90,8 @@ Route::group([
     });
 });
 
-
 Route::middleware(['web', 'guest'])->group(function () {
     Route::get('/admin/login', [AuthController::class, 'index'])->name('login');
     Route::post('/admin/login', [AuthController::class, 'auth'])->name('auth');
     Route::get('/admin/logout', [AuthController::class, 'auth'])->name('logout');
-});
-
-
-
-Route::middleware(['web','guest'])->controller(AuthController::class)->group(function(){
-    Route::get('/admin/login',[AuthController::class,'index'])->name('login');
-    Route::post('/admin/login',[AuthController::class,'auth'])->name('auth');
-
 });

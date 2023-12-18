@@ -1,11 +1,12 @@
 @extends('admin.layout.master')
+
 @section('content')
 <div class="card">
     <div class="card-header header-elements-inline">
         <h5 class="card-title">Post lists</h5>
         <div class="header-elements">
             <div class="list-icons">
-                <a href="{{route('admin.languageLine.create')}}" class="btn btn-primary btn-sm"><i class="icon-plus-circle2 mr-2"></i> Add Post</a>
+                <a href="{{route('languageLine.create')}}" class="btn btn-primary btn-sm"><i class="icon-plus-circle2 mr-2"></i> Add Post</a>
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@
                             </div>
                             <div class="mb--20">
                                 <label for="">Remember me</label>
-                                <input class="mb-0 form-control" type="checkbox"  name="remember" id="remember" >
+                                <input class="mb-0 form-control" type="checkbox" name="remember" id="remember">
                             </div>
                             <div class="col-md-12">
                                 <button class="btn btn-outlined">Login</button>
