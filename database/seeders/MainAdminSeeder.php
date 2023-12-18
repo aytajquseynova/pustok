@@ -16,9 +16,9 @@ class MainAdminSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'Rena Verdiyeva',
-            'email' => 'verdiyevarana@gmail.com',
-            'password' => Hash::make('123'),
+            'name' => 'Aytaj Huseynova',
+            'email' => 'aytajguseyn@gmail.com',
+            'password' => Hash::make('jatya'),
             'is_admin' => 1
         ]);
     }

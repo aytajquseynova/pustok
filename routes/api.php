@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriesController as AdminCategoriesController;
+use App\Http\Controllers\API\CategoriesController;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\RegisterController;
-use App\Http\Controllers\front\ProductDetailsController;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,14 +22,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::post('/register', [RegisterController::class,'register']);
 
 
-Route::controller(RegisterController::class)->group(function () {
-    Route::post('register', 'register');
-    Route::post('login', 'login');
-});
+Route::post('register', [RegisterController::class, 'register']);
+Route::post('login', [RegisterController::class, 'login']);
 
 // Route::middleware('auth:sanctum')->group(function () {
-//     Route::resource('products', ProductDetailsController::class);
+//     Route::resource('products', ProductsController::class);
 // });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('products', [ProductController::class, 'index']);
+    Route::get('categories', [CategoriesController::class, 'index']);
+});
