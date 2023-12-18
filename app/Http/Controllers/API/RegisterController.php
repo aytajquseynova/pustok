@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\MainController as MainController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Validator;
 
 class RegisterController extends MainController
@@ -17,7 +18,8 @@ class RegisterController extends MainController
      */
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        // dd(1);
+        $validator = FacadesValidator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
