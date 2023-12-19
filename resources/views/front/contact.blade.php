@@ -78,12 +78,6 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Your Phone*</label>
-                                    <input type="text" id="con_phone" name="con_phone" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
                                     <label>Your Message</label>
                                     <textarea id="con_message" name="con_message" class="form-control"></textarea>
                                 </div>

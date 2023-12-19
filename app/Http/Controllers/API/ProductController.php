@@ -19,7 +19,7 @@ class ProductController extends BaseController
     public function index()
     {
         $products = Products::all();
-        dd($products);
+   
         return $this->sendResponse(ProductResource::collection($products), 'Products retrieved successfully.');
     }
 

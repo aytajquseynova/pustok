@@ -18,6 +18,7 @@ use App\Http\Controllers\front\ProductDetailsController;
 use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -95,3 +96,5 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::post('/admin/login', [AuthController::class, 'auth'])->name('auth');
     Route::get('/admin/logout', [AuthController::class, 'auth'])->name('logout');
 });
+
+Route::get('/hi', [\App\Http\Controllers\MailController::class, 'index']);

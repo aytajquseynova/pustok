@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin\CategoriesController as AdminCategoriesController;
+
 use App\Http\Controllers\API\CategoriesController;
-use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\RegisterController;
 
@@ -33,6 +32,7 @@ Route::post('login', [RegisterController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('products', [ProductController::class, 'index']);
-    Route::get('products/{$id}', [ProductController::class, 'show']);
+    Route::get('products/{id}', [ProductController::class, 'show']);
     Route::get('categories', [CategoriesController::class, 'index']);
+    Route::get('categories/{id}', [CategoriesController::class, 'show']);
 });
