@@ -97,4 +97,4 @@ Route::middleware(['web', 'guest'])->group(function () {
     Route::get('/admin/logout', [AuthController::class, 'auth'])->name('logout');
 });
 
-Route::get('/hi', [\App\Http\Controllers\MailController::class, 'index']);
+Route::post('/hi', [\App\Http\Controllers\MailController::class, 'sendMail'])->name('sendMail');

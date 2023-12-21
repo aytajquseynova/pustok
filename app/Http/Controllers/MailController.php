@@ -2,14 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Mail\OrderShipped;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 class MailController extends Controller
 {
-    public function index()
+    public function sendMail(Request $request)
     {
-        Mail::to('aytajguseny@gmail.com')->send(new OrderShipped());
+   
+        $subject = 'Rena el cek menim kodumdan!';
+        $siteEmail = env('MAIL_FROM_ADDRESS');
+        $sended = Mail::send(
+            'emails.mail',
+            [
+                'con_name' => $request->con_name,
+                'con_email' => $request->con_email,
+                'con_message' => $request->con_message
+            ],
+            function ($message) use ($subject, $siteEmail) {
+                $message->to($siteEmail)->subject($subject);
+            }
+        );
+       if($sended) {
+            return 'success';
+       }
+    
     }
 }
