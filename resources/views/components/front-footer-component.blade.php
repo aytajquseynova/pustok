@@ -50,7 +50,7 @@
                 <div class="newsletter-form mb--30">
                     <form action="{{ route('subscribe.store') }}" method="POST">
                         @csrf
-                        <input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
+                        <input type="email" class="form-control" placeholder="Enter Your Email Address Here..." name="email">
                         <button class="btn btn--primary w-100">Subscribe</button>
                     </form>
                 </div>

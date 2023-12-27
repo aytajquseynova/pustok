@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
 {
+
+    public function index()
+    {
+        // Abonelikleri listeleme işlemleri burada gerçekleştirilir
+    }
     public function store(Request $request)
     {
         $validatedData = $request->validate([

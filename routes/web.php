@@ -100,4 +100,5 @@ Route::middleware(['web', 'guest'])->group(function () {
 
 Route::post('/hi', [\App\Http\Controllers\MailController::class, 'sendMail'])->name('sendMail');
 
-Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
+Route::resource('subscribe', SubscriptionController::class);
+
