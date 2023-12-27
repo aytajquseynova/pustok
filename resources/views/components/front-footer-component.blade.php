@@ -10,7 +10,7 @@
                         <p><span class="label">{{__('routes.address')}}:</span><span class="text">Example Street 98, HH2 BacHa, New York, USA</span></p>
                         <p><span class="label">{{__('routes.phone')}}:</span><span class="text">+18088 234 5678</span></p>
                         <p><span class="label">{{__('routes.email')}}:</span><span class="text">support@hastech.com</span></p>
-                        
+
 
                     </div>
                 </div>
@@ -48,7 +48,8 @@
                     <h3>Newsletter Subscribe</h3>
                 </div>
                 <div class="newsletter-form mb--30">
-                    <form action="./php/mail.php">
+                    <form action="{{ route('subscribe.store') }}" method="POST">
+                        @csrf
                         <input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
                         <button class="btn btn--primary w-100">Subscribe</button>
                     </form>
@@ -62,7 +63,7 @@
                         <li class="single-social google"><a href=""><i class="ion ion-social-googleplus-outline"></i></a></li>
                         <li class="single-social youtube"><a href=""><i class="ion ion-social-youtube"></i></a></li>
                     </ul>
-                    
+
                 </div>
             </div>
         </div>

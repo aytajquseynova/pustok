@@ -19,6 +19,7 @@ use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -98,3 +99,5 @@ Route::middleware(['web', 'guest'])->group(function () {
 });
 
 Route::post('/hi', [\App\Http\Controllers\MailController::class, 'sendMail'])->name('sendMail');
+
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');

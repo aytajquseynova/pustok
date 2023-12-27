@@ -10,8 +10,8 @@
                 <ul class="nav nav-tabs nav-tabs-solid border-0">
                     @foreach($langs as $key => $lang)
                     <li class="nav-item">
-                        <a href="#{{ $lang->code }}" class="nav-link {{ $key === 0 ? 'active' : '' }}" data-toggle="tab">
-                            {{ $lang->code }}
+                        <a href="#{{ $lang }}" class="nav-link {{ $key === 0 ? 'active' : '' }}" data-toggle="tab">
+                            {{ $lang }}
                         </a>
                     </li>
                     @endforeach
@@ -19,13 +19,13 @@
 
                 <div class="tab-content">
                     @foreach($langs as $key => $lang)
-                    <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="{{ $lang->code }}">
+                    <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="{{ $lang }}">
                         <div class="card">
                             <div class="card-body">
                                 <fieldset>
                                     <div class="form-group">
                                         <label>Text:</label>
-                                        <input type="text" class="form-control" name="text[{{ $lang->code }}]" value="{{ old('text.' . $lang->code) }}">
+                                        <input type="text" class="form-control" name="text[{{ $lang }}]" value="{{ old('text.' . $lang) }}">
                                     </div>
                                 </fieldset>
                             </div>
