@@ -200,6 +200,11 @@
                                         <p>Language</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('admin.brands.index')}}" class="nav-link active">
+                                        <p>Brands</p>
+                                    </a>
+                                </li>
 
                             </ul>
                         </li>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\front\HomeController;
@@ -80,6 +81,7 @@ Route::group([
     Route::post('/products/store_images/{id}', [ProductsController::class, 'products_store_image'])->name('products_store_image');
     Route::get('/product_images/{id}', [ProductsController::class, 'product_images'])->name('product_images');
     Route::get('/images/main/{id}/{product_id}', [ProductsController::class, 'add_main_image'])->name('add_main_image');
+    Route::resource('/brands', BrandsController::class);
 
 
     Route::prefix('language-line')->controller(LanguageLineController::class)->group(function () {
