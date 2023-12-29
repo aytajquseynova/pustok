@@ -1,38 +1,64 @@
 @extends('admin.layout.master')
 @section('content')
 
-<a href="{{ route ('admin.categories.create')}}" class="btn btn-success ml-4">Create</a>
+<a href="{{ route('admin.categories.create') }}" class="btn btn-success ml-4">Create</a>
 <div class="card-body">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th style="width: 10px">#</th>
-                <th>Title</th>
-                <th>Slug</th>
-                <th style="width: 40px">Status</th>
-                <th>Controlls</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($categories as $category)
-            <tr>
-                <td>{{$category->id}}</td>
-                <td>{{$category->title}}</td>
-                <td>{{$category->slug}}</td>
-                <td>{{$category->status}}</td>
-                <td class="d-flex  align-items-center">
-                    <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">Edit</a>
-                    <form onsubmit="return confirm('are you sure?')" method="post" action="{{route('admin.categories.destroy', $category->id)}}">
-                        @method('delete')
-                        @csrf
-                        <input type="submit" class="btn btn-danger m-1" value="Delete" type="text">
-                    </form>
-                </td>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 5%">#</th>
+                    <th style="width: 10%">Title</th>
+                    <th style="width: 10%">Slug</th>
+                    <th style="width: 5%">Status</th>
 
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                    <th style="width: 10%">Tags</th>
+                    <th style="width: 10%">Product Title</th>
+                    <th style="width: 5%">Ex Tax</th>
+                    <th style="width: 10%">Brands</th>
+                    <th style="width: 10%">Product Code</th>
+                    <th style="width: 5%">Reward Points</th>
+                    <th style="width: 5%">Availability</th>
+                    <th style="width: 5%">Price</th>
+                    <th style="width: 5%">Old Price</th>
+                    <th style="width: 15%">Description</th>
+                    <th style="width: 10%">Controls</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($categories as $category)
+                <tr>
+                    <td>{{$category->id}}</td>
+                    <td>{{$category->title}}</td>
+                    <td>{{$category->slug}}</td>
+                    <td>{{$category->status}}</td>
+                    <td>{{$category->tags}}</td>
+                    <td>{{$category->product_title}}</td>
+                    <td>{{$category->ex_tax}}</td>
+                    <td>{{$category->brands}}</td>
+                    <td>{{$category->product_code}}</td>
+                    <td>{{$category->reward_points}}</td>
+                    <td>{{$category->availability}}</td>
+                    <td>{{$category->price}}</td>
+                    <td>{{$category->old_price}}</td>
+                    <td>{{$category->description}}</td>
+                    <td>
+                        <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form onsubmit="return confirm('Are you sure?')" method="post" action="{{route('admin.categories.destroy', $category->id)}}">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger m-1">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @endsection
