@@ -21,11 +21,13 @@
                 <td>{{$brand->slug}}</td>
                 <td>{{$brand->status}}</td>
                 <td class="d-flex  align-items-center">
-                    <a href="{{route('admin.brands.edit', ['brand' => $brand->id])}}" class="btn btn-success mr-2">Edit</a>
+                    <a href="{{route('admin.brands.edit', ['brand' => $brand->id])}}" class="btn btn-success mr-2"><i class="fas fa-edit"></i></a>
                     <form onsubmit="return confirm('are you sure?')" method="post" action="{{route('admin.brands.destroy',['brand' => $brand->id] )}}">
-                        @method('delete')
                         @csrf
-                        <input type="submit" class="btn btn-danger m-1" value="Delete" type="text">
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger m-1">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </form>
                 </td>
 

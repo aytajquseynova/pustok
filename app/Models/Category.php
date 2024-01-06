@@ -12,7 +12,7 @@ class Category extends Model
 {
 use HasFactory,HasTranslations;
     protected $guarded=[];
-    public $translatable=['title', 'slug'];
+    public $translatable = ['title', 'slug', 'tags', 'product_title', 'ex_tax', 'brands', 'product_code', 'reward_points',  'description'];
     public function category(){
         return $this->hasMany(Category::class,'category_id');
     }

@@ -40,7 +40,22 @@ class CategoriesController extends Controller
     {
         $data=$request->all();
         $data['status']=(bool)$request->status;
-        $data['slug']=$this->data->sluggableArray($data,'title');
+        $data['availability']=(bool)$request->availability;
+        $data['price'] = (float) $request->input('price');
+        $data['old_price'] = (float) $request->input('old_price');
+        $sluggableData = [
+            'title' => $data['title'],
+            'tags' => $data['tags'],
+            'product_title' => $data['product_title'],
+            'ex_tax' => $data['ex_tax'],
+            'brands' => $data['brands'],
+            'product_code' => $data['product_code'],
+            'reward_points' => $data['reward_points'],
+            'description' => $data['description'],
+        ];
+
+        // Call the DataService method to generate slugs for the array
+        $data['slug'] = $this->data->sluggableArray($sluggableData, 'title');
         $created=Category::create($data);
 
         if($created){
@@ -76,7 +91,23 @@ class CategoriesController extends Controller
     {
         $data=$request->all();
         $data['status']= (bool)$request->status;
-        $data['slug']=$this->data->sluggableArray($data, 'title');
+        $data['availability'] = (bool)$request->availability;
+        $data['price'] = (float) str_replace(',', '.', $request->input('price'));
+        $data['old_price'] = (float) str_replace(',', '.', $request->input('old_price'));
+
+        $sluggableData = [
+            'title' => $data['title'],
+            'tags' => $data['tags'],
+            'product_title' => $data['product_title'],
+            'ex_tax' => $data['ex_tax'],
+            'brands' => $data['brands'],
+            'product_code' => $data['product_code'],
+            'reward_points' => $data['reward_points'],
+            'description' => $data['description'],
+        ];
+
+        // Call the DataService method to generate slugs for the array
+        $data['slug'] = $this->data->sluggableArray($sluggableData, 'title');
         $category=Category::findOrFail($id);
         $updated=$category->update($data);
         if($updated){

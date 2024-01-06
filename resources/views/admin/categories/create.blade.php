@@ -59,30 +59,7 @@
                 <span>{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
-                <label for="availability_{{ $lang }}">Availability {{ $lang }} dilində</label>
-                <div class="form-check">
-                    <input name="availability" value="1" type="checkbox" class="form-check-input" id="availability_{{ $lang }}" {{ old('availability.' . $lang) ? 'checked' : '' }}>
-                    <label class="form-check-label" for="availability_{{ $lang }}">Available</label>
-                </div>
-                @error("availability.$lang")
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input name="price" value="{{ old('price' ) }}" type="text" class="form-control" id="price" placeholder="Enter price">
-                @error("price.$lang")
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="old_price">Old Price</label>
-                <input name="old_price" value="{{ old('old_price') }}" type="text" class="form-control" placeholder="Enter old price">
-                @error("old_price.$lang")
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
+
             <div class="form-group">
                 <label for="description">Description {{$lang}} dilində</label>
                 <textarea name="description" class="form-control" id="description" placeholder="Enter description"></textarea>
@@ -91,6 +68,22 @@
                 @enderror
             </div>
             @endforeach
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input name="price" value="{{ old('price') }}" type="text" class="form-control" id="price" placeholder="Enter price" step="0.01">
+                @error("price")
+                <span>{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="price">Old Price</label>
+                <input name="old_price" value="{{ old('old_price') }}" type="text" class="form-control" id="price" placeholder="Enter  old price" step="0.01">
+                @error("old_price")
+                <span>{{ $message }}</span>
+                @enderror
+            </div>
 
             <div class="card-body">
                 <div class="form-group">
@@ -105,6 +98,10 @@
                 <div class="form-check">
                     <input name="status" type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Status</label>
+                </div>
+                <div class="form-check">
+                    <input name="availability" type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Availability</label>
                 </div>
             </div>
             <div class="card-footer">

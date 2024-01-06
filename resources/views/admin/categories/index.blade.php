@@ -11,7 +11,6 @@
                     <th style="width: 10%">Title</th>
                     <th style="width: 10%">Slug</th>
                     <th style="width: 5%">Status</th>
-
                     <th style="width: 10%">Tags</th>
                     <th style="width: 10%">Product Title</th>
                     <th style="width: 5%">Ex Tax</th>
@@ -43,16 +42,18 @@
                     <td>{{$category->old_price}}</td>
                     <td>{{$category->description}}</td>
                     <td>
-                        <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <form onsubmit="return confirm('Are you sure?')" method="post" action="{{route('admin.categories.destroy', $category->id)}}">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-danger m-1">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </form>
+                        <div class="d-flex">
+                            <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form onsubmit="return confirm('Are you sure?')" method="post" action="{{route('admin.categories.destroy', $category->id)}}">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-danger ">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>    
                     </td>
                 </tr>
                 @endforeach

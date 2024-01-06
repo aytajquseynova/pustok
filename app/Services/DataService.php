@@ -19,12 +19,20 @@ class DataService
 
     public function sluggableArray($array, $key)
     {
-        $slugs = [];
-        foreach ($array[$key] as $key => $value) {
-            $slugs[$key] = $this->sluggable($value);
+        // Check if the array key exists in the input array
+        if (array_key_exists($key, $array)) {
+            $slugs = [];
+            // Loop through the array values
+            foreach ($array[$key] as $k => $value) {
+                $slugs[$k] = $this->sluggable($value);
+            }
+            return $slugs;
+        } else {
+            // Handle the case where the key doesn't exist in the array
+            return [];
         }
-        return $slugs;
     }
+
 
 
 
