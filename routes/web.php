@@ -106,4 +106,7 @@ Route::post('/hi', [\App\Http\Controllers\MailController::class, 'sendMail'])->n
 Route::resource('subscribe', SubscriptionController::class);
 
 Route::get("/add-to-cart/{id}", [ShoppingCartController::class, "add"])->name('add');
+Route::get('/remove-from-cart/{id}', [ShoppingCartController::class, 'remove'])->name('remove');
+
+Route::get("/clear-cart", [ShoppingCartController::class, "destroy"])->name('clear');
 

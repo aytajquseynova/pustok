@@ -12,8 +12,8 @@ class ShoppingCartController extends Controller
     {
         Cart::add([
             [
-                'id' => 2,
-                'name' => 'Product 2',
+                'id' => 4,
+                'name' => 'Product 4',
                 'qty' => 1,
                 'price' => 9.99,
                 'weight' => 50,
@@ -25,6 +25,17 @@ class ShoppingCartController extends Controller
          
         ]);
 
+        return redirect()->back();
+    }
+
+    public function destroy(){
+        Cart::destroy();
+        return redirect()->back();
+    }
+
+    public function remove($rowId)
+    {
+        Cart::remove($rowId);
         return redirect()->back();
     }
 

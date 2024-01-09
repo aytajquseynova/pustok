@@ -50,7 +50,7 @@
                                                 @foreach(Cart::content() as $cart)
                                                 <div class="cart-product">
                                                     <a href="{{ route('client.productDetails') }}" class="image">
-                                                        <img src="{{ asset('/assets/front/image/products/cart-product-1.jpg') }}" alt="">
+                                                        <img src="{{ asset($cart->options->image) }}" alt="">
                                                     </a>
                                                     <div class="content">
                                                         <h3 class="title">
@@ -61,7 +61,7 @@
                                                         <p class="price">
                                                             <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
                                                         </p>
-                                                        <button class="cross-btn"><i class="fas fa-times"></i></button>
+                                                        <a href="{{route('remove', $cart->rowId)}}" class="cross-btn"><i class="fas fa-times"></i></a>
                                                     </div>
                                                 </div>
                                                 @endforeach
