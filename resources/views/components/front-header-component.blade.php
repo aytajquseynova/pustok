@@ -40,24 +40,35 @@
                                                 Shopping Cart
                                             </span>
                                             <span class="price">
-                                                £0.00
+                                                £{{Cart::subtotal()}}
                                                 <i class="fas fa-chevron-down"></i>
                                             </span>
                                         </div>
                                         <div class="cart-dropdown-block">
                                             <div class=" single-cart-block ">
+
+                                                @foreach(Cart::content() as $cart)
                                                 <div class="cart-product">
-                                                    <a href="{{route('client.productDetails')}}" class="image">
-                                                        <img src="{{asset('assets/front/image/products/cart-product-1.jpg')}}" alt="">
+                                                    <a href="{{ route('client.productDetails') }}" class="image">
+                                                        <img src="{{ asset('/assets/front/image/products/cart-product-1.jpg') }}" alt="">
                                                     </a>
                                                     <div class="content">
-                                                        <h3 class="title"><a href="{{route('client.productDetails')}}">Kodak PIXPRO
-                                                                Astro Zoom AZ421 16 MP</a>
+                                                        <h3 class="title">
+                                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}">
+                                                                {{ $cart->name }}
+                                                            </a>
                                                         </h3>
-                                                        <p class="price"><span class="qty">1 ×</span> £87.34</p>
+                                                        <p class="price">
+                                                            <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
+                                                        </p>
                                                         <button class="cross-btn"><i class="fas fa-times"></i></button>
                                                     </div>
                                                 </div>
+                                                @endforeach
+
+
+
+
                                             </div>
                                             <div class=" single-cart-block ">
                                                 <div class="btn-block">

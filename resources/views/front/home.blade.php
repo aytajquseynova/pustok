@@ -397,7 +397,7 @@
                                                     <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                 </a>
                                                 <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
+                                                    <a href="{{route('add', 1)}}" class="single-btn">
                                                         <i class="fas fa-shopping-basket"></i>
                                                     </a>
                                                     <a href="{{route('client.wishList')}}" class="single-btn">

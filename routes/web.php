@@ -19,6 +19,7 @@ use App\Http\Controllers\front\ProductDetailsController;
 use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
+use App\Http\Controllers\front\ShoppingCartController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Auth;
@@ -103,4 +104,6 @@ Route::middleware(['web', 'guest'])->group(function () {
 Route::post('/hi', [\App\Http\Controllers\MailController::class, 'sendMail'])->name('sendMail');
 
 Route::resource('subscribe', SubscriptionController::class);
+
+Route::get("/add-to-cart/{id}", [ShoppingCartController::class, "add"])->name('add');
 
