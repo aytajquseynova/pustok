@@ -19,6 +19,7 @@ use App\Http\Controllers\front\ProductDetailsController;
 use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
+use App\Http\Controllers\front\CurrencyController;
 use App\Http\Controllers\front\ShoppingCartController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SubscriptionController;
@@ -109,4 +110,7 @@ Route::get("/add-to-cart/{id}", [ShoppingCartController::class, "add"])->name('a
 Route::get('/remove-from-cart/{id}', [ShoppingCartController::class, 'remove'])->name('remove');
 
 Route::get("/clear-cart", [ShoppingCartController::class, "destroy"])->name('clear');
+
+
+Route::get("/currency", [CurrencyController::class, "index"])->name('currency');
 
