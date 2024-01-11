@@ -134,7 +134,7 @@
                             <div class="main-navigation flex-lg-right">
                                 <ul class="main-menu menu-right li-last-0">
                                     <li class="menu-item has-children">
-                                        <a href="/">{{__('home.az')}}</a>
+                                        <a href="/">{{__('ana səhifə')}}</a>
                                     </li>
                                     <!-- Shop -->
                                     <li class="menu-item has-children mega-menu">
