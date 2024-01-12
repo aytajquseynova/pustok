@@ -140,10 +140,12 @@
                                 </div>
 
                                 <div class="price-block">
-                                    <span class="price">£51.20</span>
-                                    <del class="price-old">£51.20</del>
-                                    <span class="price-discount">20%</span>
+                                    <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                    <del class="price-old">£{{ (float)$product->price }}</del>
+                                    <span class="price-discount">{{ (float)$product->percent }}%</span>
                                 </div>
+
+
                             </div>
                         </div>
                         <div class="product-list-content">

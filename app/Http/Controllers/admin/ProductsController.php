@@ -19,11 +19,11 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-    public function show($id)
-    {
-        $products = Products::findOrFail($id);
-        return view('front.shopList', compact('products'));
-    }
+    // public function show($id)
+    // {
+    //     $products = Products::findOrFail($id);
+    //     return view('front.shopList', compact('products'));
+    // }
 
     public function create()
     {
@@ -79,4 +79,45 @@ class ProductsController extends Controller
             }
         }
     }
+
+    public function destroy($id)
+    {
+        $product = Products::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
+    }
+
+
+    public function edit($id)
+    {
+        $product = Products::findOrFail($id);
+        $categories = Category::all();
+        $brands = Brand::all();
+
+        return view('admin.products.edit', compact('product', 'categories', 'brands'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate(['brand_id' => 'required|exists:brands,id'
+        ]);
+
+        $product = Products::findOrFail($id);
+        $product->update($request->all());
+
+        // Optionally, you may update the main image if a new one is provided
+        if ($request->hasFile('main_image')) {
+            $extension = $request->main_image->getClientOriginalExtension();
+            $randomName = Str::random(10);
+            $lastPath = 'storage/products/' . $randomName . "." . $extension;
+            $request->main_image->storeAs('products', $randomName . "." . $extension, 'public');
+            $product->update(['main_image' => $lastPath]);
+        }
+
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully');
+    }
+
+
+
 }

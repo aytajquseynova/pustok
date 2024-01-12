@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form method="POST" action="{{ route('admin.categories.update', $category->id) }}">
+        <form method="POST" action="{{ route('admin.categories.edit', $category->id) }}">
             @csrf
             @method('PATCH')
             @foreach(LaravelLocalization::getSupportedLanguagesKeys() as $lang)

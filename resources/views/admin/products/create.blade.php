@@ -11,23 +11,23 @@
   <form enctype="multipart/form-data" method="POST" action="{{route('admin.products.store')}}">
     @csrf
     <div class="form-group">
-      <label for="exampleInputEmail1">Author</label>
+      <label for="author">Author</label>
       <input name="author" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Title</label>
+      <label for="title">Title</label>
       <input name="title" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Price</label>
-      <input name="price" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <label for="price">Price</label>
+      <input name="price" value="" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Percent </label>
-      <input name="percent" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <label for="percent">Percent </label>
+      <input name="percent" value="" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Image </label>
+      <label for="image">Image </label>
       <input name="main_image" type="file" name="" id="">
     </div>
 

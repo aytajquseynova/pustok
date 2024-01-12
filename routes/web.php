@@ -79,6 +79,7 @@ Route::group([
 
 
     Route::resource('/products', ProductsController::class);
+    
     Route::get('/products/add_images/{id}', [ProductsController::class, 'products_add_image'])->name('products_add_image');
     Route::post('/products/store_images/{id}', [ProductsController::class, 'products_store_image'])->name('products_store_image');
     Route::get('/product_images/{id}', [ProductsController::class, 'product_images'])->name('product_images');
