@@ -41,7 +41,6 @@
       </select>
       <label for="exampleSelectRounded0">Select related brands</label>
       <select name="brand_id" class="custom-select rounded-0" id="exampleSelectRounded0">
-        <option value="0">main brand</option>
         @foreach($brands as $brand)
         <option value="{{$brand->id}}">{{$brand->title}}</option>
         @endforeach

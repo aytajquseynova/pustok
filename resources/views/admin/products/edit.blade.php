@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="main_image">Main Image</label>
                     <input type="file" name="main_image" class="form-control-file">
-                    <img style="width: 150px; object-fit: cover;" src="{{ asset($product->main_image) }}" alt="">
+                    <img style="width: 150px; object-fit: cover;" src="{{ asset($product->main_image) }}" accept="image/*" alt="">
                 </div>
 
                 <div class="form-group">

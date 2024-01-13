@@ -9,6 +9,9 @@ class Products extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    protected $fillable = [
+      'name', 'price', 'weight', 'size', 'main_image',
+    ];
     public function images(){
         return $this->hasMany(Images::class, 'product_id');
     }

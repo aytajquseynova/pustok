@@ -72,32 +72,37 @@
                     </div>
                 </div>
             </div>
+            @foreach($categories as $category)
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30">
-                    <p class="tag-block">
-                        Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
-                    </p>
+                    <!-- ... (other code) ... -->
                     <h3 class="product-title">
-                        Beats EP Wired On-Ear Headphone-Black
+                        {{ $category->title }}
                     </h3>
                     <ul class="list-unstyled">
-                        <li>Ex Tax: <span class="list-value"> £60.24</span></li>
+                        <li> Ex Tax:<span class="list-value"> £{{ $category->ex_tax }}</span></li>
                         <li>
                             Brands:
-                            <a href="#" class="list-value font-weight-bold"> Canon</a>
+                            <a href="#" class="list-value font-weight-bold"> {{ $category->brands }} </a>
                         </li>
-                        <li>Product Code: <span class="list-value"> model1</span></li>
-                        <li>Reward Points: <span class="list-value"> 200</span></li>
+                        <li>Product Code: <span class="list-value"> {{ $category->product_code }} </span></li>
+                        <li>Reward Points: <span class="list-value"> {{ $category->reward_points }}</span></li>
                         <li>
-                            Availability: <span class="list-value"> In Stock</span>
+                            Availability: <span class="list-value">
+                                @if ($category->availability == 0)
+                                Out of Stock
+                                @else
+                                In Stock
+                                @endif
+                            </span>
                         </li>
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">£73.79</span>
-                        <del class="price-old">£91.86</del>
+                        <span class="price-new">{{ $category->price }}</span>
+                        <del class="price-old">{{ $category->old_price }}</del>
                     </div>
                     <article class="product-details-article">
-                        <h4 class="sr-only">Product Summery</h4>
+                        <h4 class="sr-only">Product Summary</h4>
                         <p>
                             Long printed dress with thin adjustable straps. V-neckline
                             and wiring under the Dust with ruffles at the bottom of the
@@ -118,6 +123,11 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+
+
+
+
         </div>
         <div class="sb-custom-tab review-tab section-padding">
             <ul class="nav nav-tabs nav-style-2" id="myTab2" role="tablist">
@@ -268,201 +278,39 @@
                 {"breakpoint":768, "settings": {"slidesToShow": 2} },
                 {"breakpoint":480, "settings": {"slidesToShow": 1} }
             ]'>
+                @foreach($products as $product)
                 <div class="single-slide">
                     <div class="product-card">
                         <div class="product-header">
-                            <a href="" class="author"> Lpple </a>
+                            <a href="" class="author"> {{$product->author}} </a>
                             <h3>
-                                <a href="{{route('client.productDetails')}}">Revolutionize Your BOOK With</a>
+                                <a href="{{route('client.productDetails')}}">{{$product->title}}</a>
                             </h3>
                         </div>
                         <div class="product-card--body">
                             <div class="card-image">
-                                <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="" />
+                                <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
                                 <div class="hover-contents">
-                                    <a href="{{route('client.productDetails')}}" class="hover-image">
-                                        <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="" />
-                                    </a>
+
                                     <div class="hover-btns">
-                                        <a href="{{route('client.cart')}}" class="single-btn">
+                                        <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
-                                        <a href="{{route('client.wishList')}}" class="single-btn">
+                                        <a href="{{ route('client.wishList') }}" class="single-btn">
                                             <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                            <i class="fas fa-eye"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
+                                <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                <del class="price-old">£{{ (float)$product->price }}</del>
+                                <span class="price-discount">{{ (float)$product->percent }}%</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="" class="author"> Jpple </a>
-                            <h3>
-                                <a href="{{route('client.productDetails')}}">Turn Your BOOK Into High Machine</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="" />
-                                <div class="hover-contents">
-                                    <a href="{{route('client.productDetails')}}" class="hover-image">
-                                        <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="" />
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="{{route('client.cart')}}" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="{{route('client.wishList')}}" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="" class="author"> Wpple </a>
-                            <h3>
-                                <a href="{{route('client.productDetails')}}">3 Ways Create Better BOOK With</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="" />
-                                <div class="hover-contents">
-                                    <a href="{{route('client.productDetails')}}" class="hover-image">
-                                        <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="" />
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="{{route('client.cart')}}" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="{{route('client.wishList')}}" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="" class="author"> Epple </a>
-                            <h3>
-                                <a href="{{route('client.productDetails')}}">What You Can Learn From Bill Gates</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="" />
-                                <div class="hover-contents">
-                                    <a href="{{route('client.productDetails')}}"" class=" hover-image">
-                                        <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="" />
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="{{route('client.cart')}}" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="{{route('client.wishList')}}" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-slide">
-                    <div class="product-card">
-                        <div class="product-header">
-                            <a href="" class="author"> Hpple </a>
-                            <h3>
-                                <a href="{{route('client.productDetails')}}">a Half Very Simple Things You To</a>
-                            </h3>
-                        </div>
-                        <div class="product-card--body">
-                            <div class="card-image">
-                                <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="" />
-                                <div class="hover-contents">
-                                    <a href="{{route('client.productDetails')}}" class="hover-image">
-                                        <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="" />
-                                    </a>
-                                    <div class="hover-btns">
-                                        <a href="{{route('client.productDetails')}}" class="single-btn">
-                                            <i class="fas fa-shopping-basket"></i>
-                                        </a>
-                                        <a href="{{route('client.wishList')}}" class="single-btn">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                        <a href="compare.html" class="single-btn">
-                                            <i class="fas fa-random"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-block">
-                                <span class="price">£51.20</span>
-                                <del class="price-old">£51.20</del>
-                                <span class="price-discount">20%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -530,43 +378,43 @@
                                 </div>
                             </div>
                         </div>
+                        @foreach($categories as $category)
                         <div class="col-lg-7 mt--30 mt-lg--30">
                             <div class="product-details-info pl-lg--30">
                                 <p class="tag-block">
                                     Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
                                 </p>
                                 <h3 class="product-title">
-                                    Beats EP Wired On-Ear Headphone-Black
+                                    {{ $category->title }}
                                 </h3>
                                 <ul class="list-unstyled">
-                                    <li>Ex Tax: <span class="list-value"> £60.24</span></li>
+                                    <li>Ex Tax: <span class="list-value"> £{{ $category->ex_tax }}</span></li>
                                     <li>
                                         Brands:
-                                        <a href="#" class="list-value font-weight-bold">
-                                            Canon</a>
+                                        <a href="#" class="list-value font-weight-bold">{{ $category->brands }}</a>
                                     </li>
+                                    <li>Product Code: <span class="list-value"> {{ $category->product_code }}</span></li>
+                                    <li>Reward Points: <span class="list-value"> {{ $category->reward_points }}</span></li>
                                     <li>
-                                        Product Code: <span class="list-value"> model1</span>
-                                    </li>
-                                    <li>
-                                        Reward Points: <span class="list-value"> 200</span>
-                                    </li>
-                                    <li>
-                                        Availability:
-                                        <span class="list-value"> In Stock</span>
+                                        Availability: <span class="list-value">
+                                            @if ($category->availability == 0)
+                                            Out of Stock
+                                            @else
+                                            In Stock
+                                            @endif
+                                        </span>
                                     </li>
                                 </ul>
                                 <div class="price-block">
-                                    <span class="price-new">£73.79</span>
-                                    <del class="price-old">£91.86</del>
+                                    <span class="price-new">£{{ $category->price }}</span>
+                                    <del class="price-old">£{{ $category->old_price }}</del>
                                 </div>
-
                                 <article class="product-details-article">
-                                    <h4 class="sr-only">Product Summery</h4>
+                                    <h4 class="sr-only">Product Summary</h4>
                                     <p>
-                                        Long printed dress with thin adjustable straps.
-                                        V-neckline and wiring under the Dust with ruffles at
-                                        the bottom of the dress.
+                                        Long printed dress with thin adjustable straps. V-neckline
+                                        and wiring under the Dust with ruffles at the bottom of the
+                                        dress.
                                     </p>
                                 </article>
                                 <div class="add-to-cart-row">
@@ -583,6 +431,8 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
                 <div class="modal-footer">

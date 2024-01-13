@@ -4,31 +4,33 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Products; // Make sure to import the Products model
 use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
 {
     public function add($id)
     {
-        Cart::add([
-            [
-                'id' => 4,
-                'name' => 'Product 4',
+        $product = Products::find($id);
+        if ($product) {
+            Cart::add([
+                'id' => $product->id,
+                'name' => $product->name,
                 'qty' => 1,
-                'price' => 9.99,
+                'price' => $product->price,
                 'weight' => 50,
                 'options' => [
                     'size' => 'large',
-                    'image' => '/assets/front/image/products/product-1.jpg'
                 ]
-            ],
-         
-        ]);
+            ]);
+               return redirect()->back();
+        }
 
-        return redirect()->back();
+     
     }
 
-    public function destroy(){
+        public function destroy()
+    {
         Cart::destroy();
         return redirect()->back();
     }
@@ -38,5 +40,4 @@ class ShoppingCartController extends Controller
         Cart::remove($rowId);
         return redirect()->back();
     }
-
 }

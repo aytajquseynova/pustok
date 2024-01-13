@@ -100,11 +100,16 @@ class ProductsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate(['brand_id' => 'required|exists:brands,id'
+        $request->validate([
+            'brand_id' => 'required|exists:brands,id',
+            'main_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // Add other validation rules as needed
         ]);
 
         $product = Products::findOrFail($id);
-        $product->update($request->all());
+
+        // Validate and update product details
+        $product->update($request->except('main_image'));
 
         // Optionally, you may update the main image if a new one is provided
         if ($request->hasFile('main_image')) {

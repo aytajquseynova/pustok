@@ -118,9 +118,7 @@
                                     <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
                                     <div class="hover-contents">
                                         <!-- Hover Image (linked to product details page) -->
-                                        <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="hover-image">
-                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
-                                        </a>
+                                      
                                         <div class="hover-btns">
                                             <!-- Your other hover buttons go here -->
                                             <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
@@ -129,12 +127,7 @@
                                             <a href="{{ route('client.wishList') }}" class="single-btn">
                                                 <i class="fas fa-heart"></i>
                                             </a>
-                                            <a href="compare.html" class="single-btn">
-                                                <i class="fas fa-random"></i>
-                                            </a>
-                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
+                                        
                                         </div>
                                     </div>
                                 </div>

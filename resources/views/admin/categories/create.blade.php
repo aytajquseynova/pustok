@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="ex_tax">Ex Tax {{$lang}} dilində</label>
-                <input name="ex_tax" value="{{ old('ex_tax.' . $lang) }}" type="text" class="form-control" placeholder="Enter ex tax">
+                <input name="ex_tax" value="{{ old('ex_tax.' . $lang) }}" type="number" class="form-control" placeholder="Enter ex tax">
                 @error("ex_tax.$lang")
                 <span>{{ $message }}</span>
                 @enderror
