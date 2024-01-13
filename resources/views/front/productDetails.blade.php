@@ -72,7 +72,8 @@
                     </div>
                 </div>
             </div>
-            @foreach($categories as $category)
+            @foreach($categories as $index => $category)
+            @if($index === 0)
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30">
                     <!-- ... (other code) ... -->
@@ -104,9 +105,7 @@
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summary</h4>
                         <p>
-                            Long printed dress with thin adjustable straps. V-neckline
-                            and wiring under the Dust with ruffles at the bottom of the
-                            dress.
+                            {{$category->description}}
                         </p>
                     </article>
                     <div class="add-to-cart-row">
@@ -123,11 +122,9 @@
                     </div>
                 </div>
             </div>
+            @break
+            @endif
             @endforeach
-
-
-
-
         </div>
         <div class="sb-custom-tab review-tab section-padding">
             <ul class="nav nav-tabs nav-style-2" id="myTab2" role="tablist">

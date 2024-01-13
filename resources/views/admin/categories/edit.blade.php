@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form method="POST" action="{{ route('admin.categories.edit', $category->id) }}">
+        <form method="POST" action="{{ route('admin.categories.update', $category->id) }}">
             @csrf
             @method('PATCH')
             @foreach(LaravelLocalization::getSupportedLanguagesKeys() as $lang)
@@ -33,13 +33,6 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="ex_tax">Ex Tax {{$lang}} dilində</label>
-                <input name="ex_tax" value="{{ old('ex_tax.' . $lang) }}" type="text" class="form-control" placeholder="Enter ex tax">
-                @error("ex_tax.$lang")
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
                 <label for="brands">Brands {{$lang}} dilində</label>
                 <input name="brands" value="{{ old('brands.' . $lang) }}" type="text" class="form-control" placeholder="Enter brands">
                 @error("brands.$lang")
@@ -50,13 +43,6 @@
                 <label for="product_code">Product Code {{$lang}} dilində</label>
                 <input name="product_code" value="{{ old('product_code.' . $lang) }}" type="text" class="form-control" placeholder="Enter product code">
                 @error("product_code.$lang")
-                <span>{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="reward_points">Reward Points {{$lang}} dilində</label>
-                <input name="reward_points" value="{{ old('reward_points.' . $lang) }}" type="text" class="form-control" placeholder="Enter reward points">
-                @error("reward_points.$lang")
                 <span>{{ $message }}</span>
                 @enderror
             </div>
@@ -71,10 +57,24 @@
 
             @endforeach
 
+            <div class="form-group">
+                <label for="ex_tax">Ex Tax </label>
+                <input name="ex_tax" value="{{ old('ex_tax' ) }}" type="number" class="form-control" placeholder="Enter ex tax">
+                @error("ex_tax")
+                <span>{{ $message }}</span>
+                @enderror
+            </div>
 
             <div class="form-group">
+                <label for="reward_points">Reward Points</label>
+                <input name="reward_points" value="{{ old('reward_points' ) }}" type="number" class="form-control" placeholder="Enter reward points">
+                @error("reward_points")
+                <span>{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="price">Price</label>
-                <input name="price" value="{{ old('price') }}" type="text" class="form-control" id="price" placeholder="Enter price" step="0.01">
+                <input name="price" value="{{ old('price') }}" type="number" class="form-control" id="price" placeholder="Enter price" step="0.01">
                 @error("price")
                 <span>{{ $message }}</span>
                 @enderror
@@ -82,7 +82,7 @@
 
             <div class="form-group">
                 <label for="price">Old Price</label>
-                <input name="old_price" value="{{ old('old_price') }}" type="text" class="form-control" id="price" placeholder="Enter  old price" step="0.01">
+                <input name="old_price" value="{{ old('old_price') }}" type="number" class="form-control" id="price" placeholder="Enter  old price" step="0.01">
                 @error("old_price")
                 <span>{{ $message }}</span>
                 @enderror

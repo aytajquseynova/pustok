@@ -75,8 +75,7 @@ Route::group([
 ], function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/login', [AdminController::class, 'index'])->name('dashboard');
-    Route::resource('categories', CategoriesController::class);
-
+    Route::resource('/categories', CategoriesController::class);
 
     Route::resource('/products', ProductsController::class);
     
