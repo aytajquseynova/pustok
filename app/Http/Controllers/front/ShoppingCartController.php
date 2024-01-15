@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Products; // Make sure to import the Products model
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
@@ -15,21 +15,20 @@ class ShoppingCartController extends Controller
         if ($product) {
             Cart::add([
                 'id' => $product->id,
-                'name' => $product->name,
+                'name' => $product->title,
                 'qty' => 1,
                 'price' => $product->price,
                 'weight' => 50,
                 'options' => [
                     'size' => 'large',
+                    'image'=> $product->main_image,
                 ]
             ]);
-               return redirect()->back();
         }
-
-     
+        return redirect()->back();
     }
 
-        public function destroy()
+    public function destroy()
     {
         Cart::destroy();
         return redirect()->back();

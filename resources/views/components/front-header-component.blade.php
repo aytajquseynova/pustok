@@ -15,7 +15,7 @@
                                 <button>Search</button>
                             </div>
                         </div>
-                        <d iv class="col-lg-4">
+                        <div iv class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
@@ -34,7 +34,7 @@
                                     <div class="cart-block">
                                         <div class="cart-total">
                                             <span class="text-number">
-                                                1
+                                                {{Cart::count()}}
                                             </span>
                                             <span class="text-item">
                                                 Shopping Cart
@@ -44,40 +44,46 @@
                                                 <i class="fas fa-chevron-down"></i>
                                             </span>
                                         </div>
-                                        <div class="cart-dropdown-block">
-                                            <div class=" single-cart-block ">
+                                    <div class="cart-dropdown-block">
+                                                <div class="single-cart-block">
 
-                                                @foreach(Cart::content() as $cart)
-                                                <div class="cart-product">
-                                                    <div class="content">
-                                                        <h3 class="title">
-                                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}">
-                                                                {{ $cart->name }}
-                                                            </a>
-                                                        </h3>
-                                                        <p class="price">
-                                                            <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
-                                                        </p>
-                                                        <a href="{{ route('remove', $cart->rowId) }}" class="cross-btn"><i class="fas fa-times"></i></a>
+                                                    @foreach(Cart::content()->take(2) as $cart)
+                                                    <div class="cart-product">
+                                                        <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
+                                                        <div class="content">
+                                                            <h3 class="title">
+                                                                <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}">
+                                                                    {{ $cart->name }}
+                                                                </a>
+                                                            </h3>
+
+                                                            <p class="price">
+                                                                <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
+                                                            </p>
+                                                                <a href="{{ route('remove', $cart->rowId) }}" class="cross-btn"><i class="fas fa-times"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+
+                                                </div>
+                                                <div class="single-cart-block">
+                                                    <div class="btn-block">
+                                                        <a href="{{ route('client.cart') }}" class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
                                                     </div>
                                                 </div>
-                                                @endforeach
-
                                             </div>
-                                            <div class=" single-cart-block ">
-                                                <div class="btn-block">
-                                                    <a href="{{route('client.cart')}}" class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
+
+
 
                                                 </div>
+                                                @foreach(LaravelLocalization::getSupportedLocales() as $localeKey => $properties)
+                                                <a style="display:block; padding:7px; background-color:#62ab00; color:white; font-weight:bold; border:1px solid white" href="{{LaravelLocalization::getLocalizedURL($localeKey)}}">{{ $localeKey}}</a>
+                                                @endforeach
                                             </div>
-                                        </div>
                                     </div>
-                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeKey => $properties)
-                                    <a style="display:block; padding:7px; background-color:#62ab00; color:white; font-weight:bold; border:1px solid white" href="{{LaravelLocalization::getLocalizedURL($localeKey)}}">{{ $localeKey}}</a>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </d>
+                        </div>
                     </div>
                 </div>
             </div>

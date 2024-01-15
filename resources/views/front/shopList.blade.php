@@ -118,7 +118,7 @@
                                     <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
                                     <div class="hover-contents">
                                         <!-- Hover Image (linked to product details page) -->
-                                      
+
                                         <div class="hover-btns">
                                             <!-- Your other hover buttons go here -->
                                             <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
@@ -127,7 +127,7 @@
                                             <a href="{{ route('client.wishList') }}" class="single-btn">
                                                 <i class="fas fa-heart"></i>
                                             </a>
-                                        
+
                                         </div>
                                     </div>
                                 </div>
