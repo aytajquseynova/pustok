@@ -13,17 +13,19 @@ class ShoppingCartController extends Controller
     {
         $product = Products::find($id);
         if ($product) {
+            $discountedPrice = $product->price - ($product->price * $product->percent / 100);
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->title,
                 'qty' => 1,
-                'price' => $product->price,
+                'price' => $discountedPrice,
                 'weight' => 50,
                 'options' => [
                     'size' => 'large',
                     'image'=> $product->main_image,
                 ]
             ]);
+
         }
         return redirect()->back();
     }

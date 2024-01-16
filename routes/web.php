@@ -62,6 +62,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/faq', [FaqController::class, 'index'])->name('faq');
     Route::get('/orderComplete', [OrderCompleteController::class, 'index'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
+    Route::get('/wishlist/add/{id}', [WishListController::class, 'addToWishList'])->name('addToWishlist');
 });
 
 
@@ -78,7 +79,7 @@ Route::group([
     Route::resource('/categories', CategoriesController::class);
 
     Route::resource('/products', ProductsController::class);
-    
+
     Route::get('/products/add_images/{id}', [ProductsController::class, 'products_add_image'])->name('products_add_image');
     Route::post('/products/store_images/{id}', [ProductsController::class, 'products_store_image'])->name('products_store_image');
     Route::get('/product_images/{id}', [ProductsController::class, 'product_images'])->name('product_images');

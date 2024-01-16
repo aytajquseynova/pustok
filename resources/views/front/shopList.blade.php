@@ -124,7 +124,7 @@
                                             <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                 <i class="fas fa-shopping-basket"></i>
                                             </a>
-                                            <a href="{{ route('client.wishList') }}" class="single-btn">
+                                            <a href="{{ route('client.wishList', ['id' => $product->id]) }}" class="single-btn">
                                                 <i class="fas fa-heart"></i>
                                             </a>
 

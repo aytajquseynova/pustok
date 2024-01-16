@@ -35,62 +35,32 @@
 									</tr>
 								</thead>
 								<tbody>
+                                    @foreach(session('wishlist', []) as $cart)
 									<tr>
-										<td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="Product"></a></td>
-										<td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-										<td class="pro-price"><span>$395.00</span></td>
+										<td class="pro-thumbnail">
+                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                               <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                            </a>
+                                        </td>
+										<td class="pro-title">
+                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}">
+                                                {{ $cart->name }}
+                                             </a></td>
+										<td class="pro-price"><span>${{$cart->price}}</span></td>
 										<td class="pro-quantity">
 											<div class="pro-qty">
 												<div class="count-input-block">
-													<input type="number" class="form-control text-center" value="1">
+													<input type="number" class="form-control text-center" value="{{$cart->qty }}">
 												</div>
 											</div>
 										</td>
-										<td class="pro-subtotal"><span>$395.00</span></td>
-										<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+										<td class="pro-subtotal"><span>{{$cart->qty * $cart->price}}</span></td>
+										<td class="pro-remove">
+                                            <a href="{{ route('remove', $cart->rowId) }}" class="cross-btn"><i class="far fa-trash-alt"></i></a>
+                                        </td>
 									</tr>
-									<tr>
-										<td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="Product"></a></td>
-										<td class="pro-title"><a href="#">Silacon Glasses</a></td>
-										<td class="pro-price"><span>$275.00</span></td>
-										<td class="pro-quantity">
-											<div class="pro-qty">
-												<div class="count-input-block">
-													<input type="number" class="form-control text-center" value="1">
-												</div>
-											</div>
-										</td>
-										<td class="pro-subtotal"><span>$550.00</span></td>
-										<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a></td>
-									</tr>
-									<tr>
-										<td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="Product"></a></td>
-										<td class="pro-title"><a href="#">Easin Glasses</a></td>
-										<td class="pro-price"><span>$295.00</span></td>
-										<td class="pro-quantity">
-											<div class="pro-qty">
-												<div class="count-input-block">
-													<input type="number" class="form-control text-center" value="1">
-												</div>
-											</div>
-										</td>
-										<td class="pro-subtotal"><span>$295.00</span></td>
-										<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a></td>
-									</tr>
-									<tr>
-										<td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="Product"></a></td>
-										<td class="pro-title"><a href="#">Macrox Glasses</a></td>
-										<td class="pro-price"><span>$220.00</span></td>
-										<td class="pro-quantity">
-											<div class="pro-qty">
-												<div class="count-input-block">
-													<input type="number" class="form-control text-center" value="1">
-												</div>
-											</div>
-										</td>
-										<td class="pro-subtotal"><span>$220.00</span></td>
-										<td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a></td>
-									</tr>
+                                    @endforeach
+
 								</tbody>
 							</table>
 						</div>

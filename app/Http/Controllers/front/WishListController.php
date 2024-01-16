@@ -11,4 +11,17 @@ class WishListController extends Controller
     {
         return view('front.wishList');
     }
+    public function addToWishList($id)
+    {
+        $wishlist = session()->get('wishlist', []);
+
+        if (!in_array($id, $wishlist)) {
+            $wishlist[] = $id;
+            session(['wishlist' => $wishlist]);
+        }
+
+        return redirect()->back()->with('success', 'Added to wishlist');
+    }
 }
+
+

@@ -60,7 +60,7 @@
                                                             </h3>
 
                                                             <p class="price">
-                                                                <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
+                                                                  <span class="qty">{{ $cart->qty }} ×</span> £{{ $cart->price }}
                                                             </p>
                                                                 <a href="{{ route('remove', $cart->rowId) }}" class="cross-btn"><i class="fas fa-times"></i></a>
                                                         </div>
