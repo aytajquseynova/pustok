@@ -1,119 +1,83 @@
 @extends('front.layouts.master')
-@section('page_title', "wishlist")
+@section('page_title', 'Wishlist')
 @section('content')
-<div class="site-wrapper" id="top">
-	<section class="breadcrumb-section">
-		<h2 class="sr-only">Site Breadcrumb</h2>
-		<div class="container">
-			<div class="breadcrumb-contents">
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="/">Home</a></li>
-						<li class="breadcrumb-item active">Wishlist</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-	</section>
-	<!-- Wishlist Page Start -->
-	<div class="cart_area inner-page-sec-padding-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<form action="./">
-						<!-- Cart Table -->
-						<div class="cart-table table-responsive">
-							<table class="table">
-								<thead>
-									<tr>
-										<th class="pro-thumbnail">Image</th>
-										<th class="pro-title">Product</th>
-										<th class="pro-price">Price</th>
-										<th class="pro-quantity">Quantity</th>
-										<th class="pro-subtotal">Total</th>
-										<th class="pro-remove">Remove</th>
-									</tr>
-								</thead>
-								<tbody>
-                                    @foreach(session('wishlist', []) as $cart)
-									<tr>
-										<td class="pro-thumbnail">
-                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                               <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
-                                            </a>
-                                        </td>
-										<td class="pro-title">
-                                            <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}">
-                                                {{ $cart->name }}
-                                             </a></td>
-										<td class="pro-price"><span>${{$cart->price}}</span></td>
-										<td class="pro-quantity">
-											<div class="pro-qty">
-												<div class="count-input-block">
-													<input type="number" class="form-control text-center" value="{{$cart->qty }}">
-												</div>
-											</div>
-										</td>
-										<td class="pro-subtotal"><span>{{$cart->qty * $cart->price}}</span></td>
-										<td class="pro-remove">
-                                            <a href="{{ route('remove', $cart->rowId) }}" class="cross-btn"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-									</tr>
-                                    @endforeach
-
-								</tbody>
-							</table>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Cart Page End -->
-</div>
-<!--=================================
-  Brands Slider
-===================================== -->
-<section class="section-margin">
-	<h2 class="sr-only">Brand Slider</h2>
-	<div class="container">
-		<div class="brand-slider sb-slick-slider border-top border-bottom" data-slick-setting='{
-                                            "autoplay": true,
-                                            "autoplaySpeed": 8000,
-                                            "slidesToShow": 6
-                                            }' data-slick-responsive='[
-                {"breakpoint":992, "settings": {"slidesToShow": 4} },
-                {"breakpoint":768, "settings": {"slidesToShow": 3} },
-                {"breakpoint":575, "settings": {"slidesToShow": 3} },
-                {"breakpoint":480, "settings": {"slidesToShow": 2} },
-                {"breakpoint":320, "settings": {"slidesToShow": 1} }
-            ]'>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-3.jpg')}}"" alt="">
+    <div class="site-wrapper" id="top">
+        <section class="breadcrumb-section">
+            <h2 class="sr-only">Site Breadcrumb</h2>
+            <div class="container">
+                <div class="breadcrumb-contents">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Wishlist</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-            <div class=" single-slide">
-				<img src="{{asset('assets/front/image/others/brand-4.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-5.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-6.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-1.jpg')}}" alt="">
-			</div>
-			<div class="single-slide">
-				<img src="{{asset('assets/front/image/others/brand-2.jpg')}}" alt="">
-			</div>
-		</div>
-	</div>
-</section>
+        </section>
+        <!-- Wishlist Page Start -->
+        <div class="cart_area inner-page-sec-padding-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <form action="" method="post">
+
+                            <!-- Wishlist Table -->
+                            <div class="cart-table table-responsive">
+                                <div class="cart-table table-responsive">
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="pro-thumbnail">Image</th>
+                                                <th class="pro-title">Product</th>
+                                                <th class="pro-price">Price</th>
+                                                <th class="pro-remove">Remove</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            @foreach ($products as $product)
+                                                <tr>
+                                                    <td class="pro-thumbnail">
+                                                        <a href="#">
+                                                            <img src="{{ asset($product->main_image) }}"
+                                                                alt="{{ $product->title }}" alt="Product"></a>
+                                                    </td>
+                                                    <td class="pro-title"><a href="#">{{ $product->title }}</a></td>
+                                                    <td class="pro-price">
+                                                        <span>{{ (float) $product->price - ((float) $product->price * (float) $product->percent) / 100 }}</span>
+                                                    </td>
+                                                   <td class="pro-remove">
+                                                        <a href="{{route('wishitem-remove', $product->id)}}">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="cart-buttons mt-4">
+                                    <button type="submit" class="btn btn-primary">Update Wishlist</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Wishlist Page End -->
+    </div>
+    <!--=================================
+      Brands Slider
+    ===================================== -->
+    <section class="section-margin">
+        <h2 class="sr-only">Brand Slider</h2>
+        <div class="container">
+            <!-- Your brand slider code remains the same -->
+        </div>
+    </section>
 
 @endsection

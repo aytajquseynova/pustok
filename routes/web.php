@@ -62,7 +62,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/faq', [FaqController::class, 'index'])->name('faq');
     Route::get('/orderComplete', [OrderCompleteController::class, 'index'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
-    Route::get('/wishlist/add/{id}', [WishListController::class, 'addToWishList'])->name('addToWishlist');
 });
 
 
@@ -109,9 +108,9 @@ Route::resource('subscribe', SubscriptionController::class);
 
 Route::get("/add-to-cart/{id}", [ShoppingCartController::class, "add"])->name('add');
 Route::get('/remove-from-cart/{id}', [ShoppingCartController::class, 'remove'])->name('remove');
-
 Route::get("/clear-cart", [ShoppingCartController::class, "destroy"])->name('clear');
 
+Route::get('/wishList/{id}', [WishListController::class, 'index'])->name('wishlist-add');
+Route::get('/remove-wishitem/{id}', [WishListController::class, 'remove'])->name('wishitem-remove');
 
 Route::get("/currency", [CurrencyController::class, "index"])->name('currency');
-

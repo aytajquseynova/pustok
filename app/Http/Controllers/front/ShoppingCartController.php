@@ -17,15 +17,14 @@ class ShoppingCartController extends Controller
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->title,
-                'qty' => 1,
+                'qty'=> 1,
                 'price' => $discountedPrice,
                 'weight' => 50,
                 'options' => [
                     'size' => 'large',
-                    'image'=> $product->main_image,
+                    'image' => $product->main_image,
                 ]
             ]);
-
         }
         return redirect()->back();
     }

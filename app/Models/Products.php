@@ -8,30 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
-    protected $guarded=[];
-    protected $fillable = [
-      'name', 'price', 'weight', 'size', 'main_image',
-    ];
-    public function images(){
+    protected $guarded = [];
+    // protected $fillable = [
+    //   'name', 'price', 'weight', 'size', 'main_image','category_id', 'brand_id'
+    // ];
+    public function images()
+    {
         return $this->hasMany(Images::class, 'product_id');
     }
 
-    public function getMainImage($images) {
-        foreach($images as $image) {
-          if($image->is_main == 1) {
-            return $image->img;
-          }
+    public function getMainImage($images)
+    {
+        foreach ($images as $image) {
+            if ($image->is_main == 1) {
+                return $image->img;
+            }
         }
     }
 
-    public function main_image($images){
-      if($images){
-        foreach($images as $image){
-          if($image->is_main){
-            return $image->img;
-          }
+    public function main_image($images)
+    {
+        if ($images) {
+            foreach ($images as $image) {
+                if ($image->is_main) {
+                    return $image->img;
+                }
+            }
         }
-      }
     }
-
 }

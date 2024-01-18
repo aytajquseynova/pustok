@@ -40,12 +40,14 @@
                                 </thead>
                                 <tbody>
                                     <!-- Product Row -->
+                                    @foreach(Cart::content() as $cart)
                                     <tr>
                                         <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
-                                        <td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-                                        <td class="pro-price"><span>$395.00</span></td>
+                                    <td class="pro-thumbnail"><a href="#"><img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid"></a></td>
+
+                                        <td class="pro-title"><a href="#">{{ $cart->name }}</a></td>
+                                        <td class="pro-price"><span>£{{ $cart->price }}</span></td>
                                         <td class="pro-quantity">
                                             <div class="pro-qty">
                                                 <div class="count-input-block">
@@ -55,22 +57,9 @@
                                         </td>
                                         <td class="pro-subtotal"><span>$395.00</span></td>
                                     </tr>
+                                    @endforeach
                                     <!-- Product Row -->
-                                    <tr>
-                                        <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                        <td class="pro-thumbnail"><a href="#"><img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-                                        <td class="pro-price"><span>$395.00</span></td>
-                                        <td class="pro-quantity">
-                                            <div class="pro-qty">
-                                                <div class="count-input-block">
-                                                    <input type="number" class="form-control text-center" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="pro-subtotal"><span>$395.00</span></td>
-                                    </tr>
+
 
                                 </tbody>
                             </table>
