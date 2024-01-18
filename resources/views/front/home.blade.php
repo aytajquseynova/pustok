@@ -106,257 +106,44 @@
                                             {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                             {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                         ]'>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="#" class="author">
-                                                Fpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">Get Through To Your
-                                                    BOOK</a></h3>
+                                     @foreach(Cart::content() as $cart)
+                                        <div class="single-slide">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        {{ $cart->author }}
+                                                    </a>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                </div>
+                                                <div class="product-card--body">
+                                                    <div class="card-image">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
+                                                        <div class="hover-contents">
+                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                </a>
+                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-block">
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Gpple
-                                            </a>
-                                            <h3><a href=" {{route('client.productDetails')}}">What Can You Do To Save Your
-                                                    BOOK</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a class="author">
-                                                Hpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">From Destruction By Social
-                                                    Media?</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="#" class="author">
-                                                Gpple
-                                            </a>
-                                            <h3><a href=" {{route('client.productDetails')}}">Find Out More About BOOK ?</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src=" {{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="#" class="author">
-                                                Dpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">Controversial BOOK
-                                                    Social Media?</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Cpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">Lightweight
-                                                    Portable Headphone</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Apple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">Ways To Have More
-                                                    BOOK</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Xpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">Ways To Have More
-                                                    BOOK</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Tpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">10 Minutes, I'll Give You
-                                                    The Truth</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Fpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">What Can You Do To Save Your
-                                                    BOOK</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Tpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">10 Minutes, I'll Give You
-                                                    The Truth</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card card-style-list">
-                                    <div class="card-image">
-                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Fpple
-                                            </a>
-                                            <h3><a href="{{route('client.productDetails')}}">What Can You Do To Save Your
-                                                    BOOK</a></h3>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        @endforeach
                         </div>
                     </div>
                     <div class="single-block text-center">
@@ -380,266 +167,44 @@
                                             {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                             {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                         ]'>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Ypple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>BOOK: Do You Really Need It? This
-                                                Will Help You</a></h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('add', 1)}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
+                         @foreach(Cart::content() as $cart)
+                                        <div class="single-slide">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        {{ $cart->author }}
                                                     </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                </div>
+                                                <div class="product-card--body">
+                                                    <div class="card-image">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
+                                                        <div class="hover-contents">
+                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                </a>
+                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-block">
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Upple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>Here Is A Quick Cure For BOOK
-                                                This Will Help</a></h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
-                                                    </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Ypple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>Simple Things
-                                                You Can Do Save BOOK save money</a>
-                                        </h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
-                                                    </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Epple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>What You Can Learn From Bill
-                                                Gates reading a book</a></h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src=" {{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
-                                                    </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Rpple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>3 Ways Create Better BOOK With
-                                                The Help Of Your Dog</a>
-                                        </h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
-                                                    </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="" class="author">
-                                            Tpple
-                                        </a>
-                                        <h3><a href="{{route('client.productDetails')}}">>Turn Your BOOK Into A High
-                                                Performing Machine</a></h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                            <div class="hover-contents">
-                                                <a href="{{route('client.productDetails')}}"> class="hover-image">
-                                                    <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                </a>
-                                                <div class="hover-btns">
-                                                    <a href="{{route('client.cart')}}" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
-                                                    </a>
-                                                    <a href="{{route('client.wishList')}}" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">£51.20</span>
-                                            <del class="price-old">£51.20</del>
-                                            <span class="price-discount">20%</span>
-                                        </div>
-                                        <div class="count-down-block">
-                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        @endforeach
                         </div>
                     </div>
                     <div class="single-block">
@@ -785,18 +350,20 @@
                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                     ]'>
+                                        @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        jpple
+                                                        {{ $cart->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">>Rpple iPad with
-                                                            Retina Display</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
@@ -808,464 +375,19 @@
                                                                 <a href="{{route('client.wishList')}}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Bpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Koss Lightweight
-                                                            Headphone</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Cpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Beats Wired On-Ear
-                                                            Headphone-Black</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Dpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Beats Solo2 Solo 2
-                                                            Wired On-Ear</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Lpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Beats Solo3 Wireless
-                                                            Headphones 2</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Fpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                            Appealing BOOK</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Epple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">10 Minutes, I'll
-                                                            Give You Truth About</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Fpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Ways To Get Through
-                                                            BOOK</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Gpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">What Can You Do To
-                                                            Save Your BOOK</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Hpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">From Destruction By
-                                                            Social Media?</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Gpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Find Out More About
-                                                            BOOK ?</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Vpple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">Read This
-                                                            Contro versial BOOK?</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-12.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
@@ -1281,21 +403,23 @@
                             {"breakpoint":480, "settings": {"slidesToShow": 1} },
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
+                                         @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        Apple
+                                                        {{ $cart->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
                                                                 <a href="{{route('client.cart')}}" class="single-btn">
@@ -1304,463 +428,19 @@
                                                                 <a href="{{route('client.wishList')}}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-12.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
@@ -1776,18 +456,21 @@
                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                     ]'>
+                                    
+                                         @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        Apple
+                                                        {{ $cart->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                        </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
@@ -1799,463 +482,19 @@
                                                                 <a href="{{route('client.wishList')}}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Apple
-                                                    </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                            Retina Display</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                                <img src="{{asset('assets/front/image/products/product-10.jpg')}}"" alt="">
-                                                            </a>
-                                                            <div class=" hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price-block">
-                                                    <span class="price">£51.20</span>
-                                                    <del class="price-old">£51.20</del>
-                                                    <span class="price-discount">20%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-slide">
-                                        <div class="product-card">
-                                            <div class="product-header">
-                                                <a href="" class="author">
-                                                    Apple
-                                                </a>
-                                                <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                        Retina Display</a></h3>
-                                            </div>
-                                            <div class="product-card--body">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-12.jpg')}}" alt="">
-                                                    <div class="hover-contents">
-                                                        <a href="{{route('client.productDetails')}}" class="hover-image">
-                                                            <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                        </a>
-                                                        <div class="hover-btns">
-                                                            <a href="{{route('client.cart')}}" class="single-btn">
-                                                                <i class="fas fa-shopping-basket"></i>
-                                                            </a>
-                                                            <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                <i class="fas fa-heart"></i>
-                                                            </a>
-                                                            <a href="compare.html" class="single-btn">
-                                                                <i class="fas fa-random"></i>
-                                                            </a>
-                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price-block">
-                                                    <span class="price">£51.20</span>
-                                                    <del class="price-old">£51.20</del>
-                                                    <span class="price-discount">20%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
                                 </div>
                             </div>
                         </div>
@@ -2305,348 +544,47 @@
                                                         "dots":true
                                                     }' data-slick-responsive='[
                                                         {"breakpoint":992, "settings": {"slidesToShow": 2,"rows": 3} },
-                    
+
                                                         {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                     ]'>
+                                         @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        {{ $cart->author }}
+                                                    </a>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
+                                                    <div class="card-image">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
                                                         </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">5 Ways To Get
-                                                                Through To Your BOOK</a></h3>
+                                                        <div class="hover-contents">
+                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                </a>
+                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Hpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Dpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Cpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Xpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Tpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">In 10 Minutes,
-                                                                I'll Give Truth About</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-12.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Spple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Lorem ipsum dolor
-                                                                sit amet reasons</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-13.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Kpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                                Retina ready Display </a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="men2" role="tabpanel" aria-labelledby="men-tab2">
@@ -2658,348 +596,47 @@
                                                         "dots":true
                                                     }' data-slick-responsive='[
                                                         {"breakpoint":992, "settings": {"slidesToShow": 2,"rows": 3} },
-                    
+
                                                         {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                     ]'>
+                                         @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        {{ $cart->author }}
+                                                    </a>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
+                                                    <div class="card-image">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
                                                         </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">5 Ways To Get
-                                                                Through To Your BOOK</a></h3>
+                                                        <div class="hover-contents">
+                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                </a>
+                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Hpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Dpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Cpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-8.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Xpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Tpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">In 10 Minutes,
-                                                                I'll Give Truth About</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src=" {{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-11.jpg')}}"" alt="">
-                                                </div>
-                                                <div class=" product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Spple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-13.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Kpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                                Retina ready Display </a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="woman2" role="tabpanel" aria-labelledby="woman-tab2">
@@ -3011,349 +648,48 @@
                                                             "dots":true
                                                         }' data-slick-responsive='[
                                                             {"breakpoint":992, "settings": {"slidesToShow": 2,"rows": 3} },
-                        
+
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
+                                       @foreach(Cart::content() as $cart)
                                         <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        {{ $cart->author }}
+                                                    </a>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
+                                                    <div class="card-image">
+                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
+                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
                                                         </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">5 Ways To Get
-                                                                Through To Your BOOK</a></h3>
+                                                        <div class="hover-contents">
+                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                                <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                </a>
+                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <span class="price">£{{ $cart->price }}</span>
+                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
+                                                        <span class="price-discount">£{{ $cart->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-3.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Hpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-4.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Dpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-6.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Cpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-7.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product81.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Xpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Ways To Have
-                                                                Appealing BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-9.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Tpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">In 10 Minutes,
-                                                                I'll Give Truth About</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-10.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">What Can You Do
-                                                                To Save Your BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-11.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">From Destruction
-                                                                By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-12.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Spple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK By Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-13.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Kpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Find Out More
-                                                                About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">
-                                                                Controversial BOOK By Social Media?</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-2.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">iPad with
-                                                                Retina ready Display </a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{asset('assets/front/image/products/product-5.jpg')}}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{route('client.productDetails')}}">Koss
-                                                                Lightweight Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
+                                </div>
                                 </div>
                             </div>
                         </div>

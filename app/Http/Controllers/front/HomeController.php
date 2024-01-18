@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,8 +12,9 @@ class HomeController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        return view('front.home');
-    }   
+        $products = Products::all();
+        return view('front.home', compact('products'));
+    }
 
     /**
      * Show the form for creating a new resource.
