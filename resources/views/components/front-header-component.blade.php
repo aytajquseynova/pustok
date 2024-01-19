@@ -134,7 +134,7 @@
                             <div class="main-navigation flex-lg-right">
                                 <ul class="main-menu menu-right li-last-0">
                                     <li class="menu-item has-children">
-                                        <a href="/">{{__('ana səhifə')}}</a>
+                                         <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
                                     </li>
                                     <!-- Shop -->
                                     <li class="menu-item has-children mega-menu">
@@ -217,7 +217,7 @@
                         <nav class="off-canvas-nav">
                             <ul class="mobile-menu main-mobile-menu">
                                 <li class="menu-item-has-children">
-                                    <a href="{{route('client.home')}}">{{__('routes.home')}}</a>
+                                    <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
 
                                 </li>
                                 <!-- <li class="menu-item-has-children">
@@ -290,7 +290,7 @@
                         <div class="main-navigation flex-lg-right">
                             <ul class="main-menu menu-right ">
                                 <li class="menu-item has-children">
-                                    <a href="{{route('client.home')}}">{{__('routes.home')}}</a>
+                                    <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
 
                                 </li>
                                 <!-- Shop -->

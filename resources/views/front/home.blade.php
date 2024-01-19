@@ -106,19 +106,19 @@
                                             {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                             {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                         ]'>
-                                     @foreach(Cart::content() as $cart)
+                                    @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -136,9 +136,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,19 +167,19 @@
                                             {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                             {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                         ]'>
-                         @foreach(Cart::content() as $cart)
+                                        @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -197,9 +197,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,9 +208,7 @@
                         </div>
                     </div>
                     <div class="single-block">
-                        <h3 class="home-sidebar-title">
-                            CLIENT TESTIMONIALS
-                        </h3>
+
                         <div class="sb-slick-slider testimonial-slider slider-one-column" data-slick-setting='{
                 "autoplay": true,
                 "autoplaySpeed": 8000,
@@ -223,91 +221,6 @@
                 {"breakpoint":575, "settings": {"slidesToShow": 1} },
                 {"breakpoint":490, "settings": {"slidesToShow": 1} }
             ]'>
-                            <div class="single-slide">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-image">
-                                        <img src="{{asset('assets/front/image/others/client-1.png')}}" alt="">
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <article>
-                                            <h2 class="sr-only">Testimonial Article</h2>
-                                            <p>version This is Photoshops of Lorem Ipsum. Proin gravida nibh vel
-                                                velit.Lorem ipsum dolor
-                                                sit amet, consectetur
-                                                adipiscing elit. In molestie augue magna. Pell..</p>
-                                            <span class="d-block client-name">Rebecka Filson</span>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-image">
-                                        <img src="{{asset('assets/front/image/others/client-2.png')}}" alt="">
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <article>
-                                            <h2 class="sr-only">Testimonial Article</h2>
-                                            <p>In molestie augue magna.This is Photoshops version of Lorem
-                                                Ipsum. Proin gravida nibh vel
-                                                velit.Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit. Pell..</p>
-                                            <span class="d-block client-name">Rebecka Filson</span>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-image">
-                                        <img src="{{asset('assets/front/image/others/client-3.png')}}" alt="">
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <article>
-                                            <h2 class="sr-only">Testimonial Article</h2>
-                                            <p>Lorem Ipsum This is Photoshops version of . Proin gravida nibh
-                                                vel velit.Lorem ipsum
-                                                dolor sit amet, consectetur
-                                                adipiscing elit. In molestie augue magna. Pell..</p>
-                                            <span class="d-block client-name">Rebecka Filson</span>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-image">
-                                        <img src="{{asset('assets/front/image/others/client-4.png')}}" alt="">
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <article>
-                                            <h2 class="sr-only">Testimonial Article</h2>
-                                            <p>elit. In molestie This is Photoshops version of Lorem Ipsum.
-                                                Proin gravida nibh vel
-                                                velit.Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing augue magna. Pell..</p>
-                                            <span class="d-block client-name">Rebecka Filson</span>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide">
-                                <div class="testimonial-card">
-                                    <div class="testimonial-image">
-                                        <img src="{{asset('assets/front/image/others/client-5.png')}}" alt="">
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <article>
-                                            <h2 class="sr-only">Testimonial Article</h2>
-                                            <p>Pell Photoshops version of Lorem Ipsum. Proin gravida nibh vel
-                                                velit.Lorem ipsum dolor
-                                                sit amet, consectetur
-                                                adipiscing elit. In molestie augue magna. This is..</p>
-                                            <span class="d-block client-name">Rebecka Filson</span>
-                                        </article>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -350,19 +263,19 @@
                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                     ]'>
-                                        @foreach(Cart::content() as $cart)
+                                        @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -380,9 +293,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -403,19 +316,19 @@
                             {"breakpoint":480, "settings": {"slidesToShow": 1} },
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
-                                         @foreach(Cart::content() as $cart)
+                                         @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -433,9 +346,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -456,20 +369,20 @@
                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                     ]'>
-                                    
-                                         @foreach(Cart::content() as $cart)
+
+                                @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -487,9 +400,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -547,19 +460,19 @@
 
                                                         {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                     ]'>
-                                         @foreach(Cart::content() as $cart)
+                                    @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -577,9 +490,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -599,19 +512,19 @@
 
                                                         {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                     ]'>
-                                         @foreach(Cart::content() as $cart)
+                                       @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -629,9 +542,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -651,19 +564,19 @@
 
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
-                                       @foreach(Cart::content() as $cart)
+                                       @foreach($products as $product)
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">
-                                                        {{ $cart->author }}
+                                                        {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $cart->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                         <a href="{{ route('client.productDetails', ['id' => $cart->id]) }}" class="image">
-                                                            <img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid">
+                                                         <a href="{{ route('client.productDetails', ['id' => $product->id]) }}" class="image">
+                                                            <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
                                                             <a href="{{route('client.productDetails')}}" class="hover-image">
@@ -681,9 +594,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£{{ $cart->price }}</span>
-                                                        <del class="price-old">£ {{$cart->price / (1 - ($cart->percent / 100))}}</del>
-                                                        <span class="price-discount">£{{ $cart->percent }}</span>
+                                                        <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                                                        <del class="price-old">£ {{$product->price}}</del>
+                                                        <span class="price-discount">£{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -702,90 +615,7 @@
                         "slidesToShow": 1,
                         "dots": true
                     }'>
-                        <div class="single-slide">
-                            <div class="blog-card">
-                                <div class="image">
-                                    <img src="assets/image/others/home-blog-1.jpg" alt="">
-                                </div>
-                                <div class="content">
-                                    <div class="content-header">
-                                        <div class="date-badge">
-                                            <span class="date">
-                                                30
-                                            </span>
-                                            <span class="month">
-                                                OCT
-                                            </span>
-                                        </div>
-                                        <h3 class="title"><a href="blog-details.html">How to Water and Care
-                                                for Mounted</a></h3>
-                                    </div>
-                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
-                                    <article class="blog-paragraph">
-                                        <h2 class="sr-only">blog-paragraph</h2>
-                                        <p>Virtual reality and 3-D technology are already well-established
-                                            in the entertainment...</p>
-                                    </article>
-                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-slide">
-                            <div class="blog-card">
-                                <div class="image">
-                                    <img src="assets/image/others/home-blog-2.jpg" alt="">
-                                </div>
-                                <div class="content">
-                                    <div class="content-header">
-                                        <div class="date-badge">
-                                            <span class="date">
-                                                30
-                                            </span>
-                                            <span class="month">
-                                                OCT
-                                            </span>
-                                        </div>
-                                        <h3 class="title"><a href="blog-details.html">How to Grow Epiphytic
-                                                Tropical Plants</a></h3>
-                                    </div>
-                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
-                                    <article class="blog-paragraph">
-                                        <h2 class="sr-only">blog-paragraph</h2>
-                                        <p>Virtual reality and 3-D technology are already well-established
-                                            in the entertainment...</p>
-                                    </article>
-                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-slide">
-                            <div class="blog-card">
-                                <div class="image">
-                                    <img src="assets/image/others/home-blog-1.jpg" alt="">
-                                </div>
-                                <div class="content">
-                                    <div class="content-header">
-                                        <div class="date-badge">
-                                            <span class="date">
-                                                30
-                                            </span>
-                                            <span class="month">
-                                                OCT
-                                            </span>
-                                        </div>
-                                        <h3 class="title"><a href="blog-details.html">How To Pot Up and Care
-                                                For Juvenile</a></h3>
-                                    </div>
-                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
-                                    <article class="blog-paragraph">
-                                        <h2 class="sr-only">blog-paragraph</h2>
-                                        <p>Virtual reality and 3-D technology are already well-established
-                                            in the entertainment...</p>
-                                    </article>
-                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

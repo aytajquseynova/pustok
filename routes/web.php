@@ -59,7 +59,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/myaccount', [MyAccountController::class, 'index'])->name('myaccount');
     Route::get('/productDetails', [ProductDetailsController::class, 'index'])->name('productDetails');
-    Route::get('/faq', [FaqController::class, 'index'])->name('faq');
     Route::get('/orderComplete', [OrderCompleteController::class, 'index'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
 });

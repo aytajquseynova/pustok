@@ -69,15 +69,15 @@
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>First Name*</label>
-                                        <input type="text" placeholder="First Name">
+                                        <input type="text" name="name" placeholder="First Name">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Last Name*</label>
-                                        <input type="text" placeholder="Last Name">
+                                        <input type="text" name="surname" placeholder="Last Name">
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Company Name</label>
-                                        <input type="text" placeholder="Company Name">
+                                        <input type="text" name="company_name" placeholder="Company Name">
                                     </div>
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
@@ -91,83 +91,30 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Email Address*</label>
-                                        <input type="email" placeholder="Email Address">
+                                        <input type="email" name="email" placeholder="Email Address">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Phone no*</label>
-                                        <input type="text" placeholder="Phone number">
+                                        <input type="text" name="phone" placeholder="Phone number">
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Address*</label>
-                                        <input type="text" placeholder="Address line 1">
+                                        <input type="text"  name="address" placeholder="Address line 1">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
-                                        <input type="text" placeholder="Town/City">
+                                        <input type="text" name="town_city" placeholder="Town/City">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
-                                        <input type="text" placeholder="State">
+                                        <input type="text" name="state" placeholder="State">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
-                                        <input type="text" placeholder="Zip Code">
+                                        <input type="text" name="zip_code" placeholder="Zip Code">
                                     </div>
                                     <div class="col-12 mb--20 ">
 
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Shipping Address -->
-                            <div id="shipping-form" class="mb--40">
-                                <h4 class="checkout-title">Shipping Address</h4>
-                                <div class="row">
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>First Name*</label>
-                                        <input type="text" placeholder="First Name">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Last Name*</label>
-                                        <input type="text" placeholder="Last Name">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Email Address*</label>
-                                        <input type="email" placeholder="Email Address">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Phone no*</label>
-                                        <input type="text" placeholder="Phone number">
-                                    </div>
-                                    <div class="col-12 mb--20">
-                                        <label>Company Name</label>
-                                        <input type="text" placeholder="Company Name">
-                                    </div>
-                                    <div class="col-12 mb--20">
-                                        <label>Address*</label>
-                                        <input type="text" placeholder="Address line 1">
-                                        <input type="text" placeholder="Address line 2">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Country*</label>
-                                        <select class="nice-select">
-                                            <option>Bangladesh</option>
-                                            <option>China</option>
-                                            <option>country</option>
-                                            <option>India</option>
-                                            <option>Japan</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Town/City*</label>
-                                        <input type="text" placeholder="Town/City">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>State*</label>
-                                        <input type="text" placeholder="State">
-                                    </div>
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Zip Code*</label>
-                                        <input type="text" placeholder="Zip Code">
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +153,7 @@
                                     <input type="checkbox" id="accept_terms2">
                                     <label for="accept_terms2">I’ve read and accept the terms & conditions</label>
                                 </div>
-                                <button class="place-order w-100">Place order</button>
+                                <a class="place-order w-100" href="{{route('client.orderComplete')}}"> Place order</a>
                             </div>
                         </div>
 

@@ -108,7 +108,7 @@
                             {{$category->description}}
                         </p>
                     </article>
-                    <div class="add-to-cart-row">
+                        <div class="add-to-cart-row">
                         <div class="count-input-block">
                             <span class="widget-label">Qty</span>
                             <input type="number" class="form-control text-center" value="1" />
@@ -237,24 +237,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="tab-product-details">
-  <div class="brand">
-    <img src="assets/image/others/review-tab-product-details.jpg" alt="">
-  </div>
-  <h5 class="meta">Reference <span class="small-text">demo_5</span></h5>
-  <h5 class="meta">In stock <span class="small-text">297 Items</span></h5>
-  <section class="product-features">
-    <h3 class="title">Data sheet</h3>
-    <dl class="data-sheet">
-      <dt class="name">Compositions</dt>
-      <dd class="value">Viscose</dd>
-      <dt class="name">Styles</dt>
-      <dd class="value">Casual</dd>
-      <dt class="name">Properties</dt>
-      <dd class="value">Maxi Dress</dd>
-    </dl>
-  </section>
-</div> -->
+
     </div>
     <!--=================================
     RELATED PRODUCTS BOOKS

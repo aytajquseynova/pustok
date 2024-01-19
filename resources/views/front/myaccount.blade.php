@@ -25,10 +25,7 @@
                             <a href="#dashboad" class="active" data-toggle="tab"><i class="fas fa-tachometer-alt"></i>
                                 Dashboard</a>
                             <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
-                            <a href="#download" data-toggle="tab"><i class="fas fa-download"></i> Download</a>
-                            <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i>
-                                Payment
-                                Method</a>
+
                             <a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i>
                                 address</a>
                             <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account
@@ -64,39 +61,21 @@
                                         <table class="table table-bordered">
                                             <thead class="thead-light">
                                                 <tr>
-                                                    <th>No</th>
                                                     <th>Name</th>
                                                     <th>Date</th>
-                                                    <th>Status</th>
                                                     <th>Total</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach (Cart::content() as $cart)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Mostarizing Oil</td>
-                                                    <td>Aug 22, 2018</td>
-                                                    <td>Pending</td>
-                                                    <td>$45</td>
+                                                    <td>{{$cart->name}}</td>
+                                                    <td>{{ now()->format('M d, Y') }}</td>
+                                                    <td>${{Cart::subtotal()}}</td>
                                                     <td><a href="{{route('client.cart')}}" class="btn">View</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Katopeno Altuni</td>
-                                                    <td>July 22, 2018</td>
-                                                    <td>Approved</td>
-                                                    <td>$100</td>
-                                                    <td><a href="{{route('client.cart')}}" class="btn">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Murikhete Paris</td>
-                                                    <td>June 12, 2017</td>
-                                                    <td>On Hold</td>
-                                                    <td>$99</td>
-                                                    <td><a href="{{route('client.cart')}}" class="btn">View</a></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -113,34 +92,19 @@
                                                 <tr>
                                                     <th>Product</th>
                                                     <th>Date</th>
-                                                    <th>Expire</th>
-                                                    <th>Download</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Mostarizing Oil</td>
-                                                    <td>Aug 22, 2018</td>
-                                                    <td>Yes</td>
-                                                    <td><a href="#" class="btn">Download File</a></td>
+                                                    @foreach (Cart::content() as $cart)
+                                                    <td>{{$cart->name}}</td>
+                                                    <td>{{ now()->format('M d, Y') }}</td>
+                                                    @endforeach
                                                 </tr>
-                                                <tr>
-                                                    <td>Katopeno Altuni</td>
-                                                    <td>Sep 12, 2018</td>
-                                                    <td>Never</td>
-                                                    <td><a href="#" class="btn">Download File</a></td>
-                                                </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- Single Tab Content End -->
-                            <!-- Single Tab Content Start -->
-                            <div class="tab-pane fade" id="payment-method" role="tabpanel">
-                                <div class="myaccount-content">
-                                    <h3>Payment Method</h3>
-                                    <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
                                 </div>
                             </div>
                             <!-- Single Tab Content End -->
