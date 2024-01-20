@@ -125,10 +125,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -186,10 +186,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                 <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -282,10 +282,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                                <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                               <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -335,10 +335,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                               <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -389,10 +389,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                             <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -479,10 +479,10 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                              <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
+                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
@@ -531,12 +531,12 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
+                                                            <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
+                                                            </a>
+                                                            <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
+                                                                <i class="fas fa-heart"></i>
+                                                            </a>
 
                                                             </div>
                                                         </div>
@@ -583,13 +583,12 @@
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a href="{{route('client.cart')}}" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="{{route('client.wishList')}}" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-
+                                                            <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
+                                                                <i class="fas fa-shopping-basket"></i>
+                                                            </a>
+                                                           <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
+                                                                <i class="fas fa-heart"></i>
+                                                            </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -734,7 +733,9 @@
                             </div>
                         </div>
                         <div class="compare-wishlist-row">
-                            <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
+                             <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="add-link">Add to Wish List
+                                                <i class="fas fa-heart"></i>
+                            </a>
                             <a href="" class="add-link"><i class="fas fa-random"></i>Add to Compare</a>
                         </div>
                     </div>
