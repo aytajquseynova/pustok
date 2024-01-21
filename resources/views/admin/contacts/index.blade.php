@@ -1,5 +1,6 @@
 @extends('admin.layout.master')
 @section('content')
+<a href="{{ route('admin.contacts.create') }}" class="btn btn-success ml-4">Create</a>
 
 <div class="card-body">
     <table class="table table-bordered">
