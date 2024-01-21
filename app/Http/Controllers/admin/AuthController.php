@@ -12,7 +12,7 @@ class AuthController extends Controller
     {
         return view('admin.login');
     }
-   
+
     public function auth(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -24,7 +24,7 @@ class AuthController extends Controller
            return redirect()->intended('dashboard');
        }
 
-       return back()->with(['error' => 'you are not admin ay bro.']);
-       
+       return back()->with(['error' => 'You are not admin']);
+
     }
 }

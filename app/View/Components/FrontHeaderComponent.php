@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Category;
+use App\Models\Contact;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -24,6 +25,7 @@ class FrontHeaderComponent extends Component
     {
         $categories = Category::with('category')->where('category_id',0)->where('status',1)->get();
         // dd($categories);
-        return view('components.front-header-component',compact('categories'));
+        $contacts = Contact::all();
+        return view('components.front-header-component',compact('categories', 'contacts'));
     }
 }

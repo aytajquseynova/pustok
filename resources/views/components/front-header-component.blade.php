@@ -1,4 +1,7 @@
-    <div class="site-wrapper" id="top">
+
+    @foreach ($contacts as $contact)
+
+   <div class="site-wrapper" id="top">
         <div class="site-header header-4 mb--20 d-none d-lg-block">
 
             <div class="header-middle pt--10 pb--10">
@@ -124,9 +127,10 @@
                                 <div class="icon">
                                     <i class="fas fa-headphones-alt"></i>
                                 </div>
+
                                 <div class="text">
                                     <p>Free Support 24/7</p>
-                                    <p class="font-weight-bold number">+01-202-555-0181</p>
+                                    <p class="font-weight-bold number">{{$contact->phone1}}</p>
                                 </div>
                             </div>
                         </div>
@@ -262,8 +266,8 @@
                     </nav>
                     <div class="off-canvas-bottom">
                         <div class="contact-list mb--10">
-                            <a href="" class="sin-contact"><i class="fas fa-mobile-alt"></i>(12345) 78790220</a>
-                            <a href="" class="sin-contact"><i class="fas fa-envelope"></i>examle@handart.com</a>
+                            <a href="" class="sin-contact"><i class="fas fa-mobile-alt"></i>{{$contact->phone2}}</a>
+                            <a href="" class="sin-contact"><i class="fas fa-envelope"></i>{{$contact->email}}</a>
                         </div>
                         <div class="off-canvas-social">
                             <a href="#" class="single-icon"><i class="fab fa-facebook-f"></i></a>
@@ -309,3 +313,4 @@
                 </div>
             </div>
         </div>
+     @endforeach

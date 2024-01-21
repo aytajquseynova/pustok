@@ -36,7 +36,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+
                                             @foreach ($products as $product)
                                                 <tr>
                                                     <td class="pro-thumbnail">
@@ -60,9 +60,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="cart-buttons mt-4">
-                                    <button type="submit" class="btn btn-primary">Update Wishlist</button>
-                                </div>
+                             
                         </form>
                     </div>
                 </div>

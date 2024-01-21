@@ -138,7 +138,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                     <div class="single-block text-center">
-                        <a href="" class="promo-image home-sidebar-promo promo-overlay">
+                        <a href="{{ route('client.sale-four') }}" class="promo-image home-sidebar-promo promo-overlay">
                             <img src="{{asset('assets/front/image/others/home-side-promo.jpg')}}" alt="">
                         </a>
                     </div>
@@ -199,7 +199,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -295,7 +295,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -348,7 +348,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,7 +402,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -416,12 +416,12 @@
                 <div class="single-block">
                     <div class="row space-db--30">
                         <div class="col-lg-8 mb--30">
-                            <a href="" class="promo-image promo-overlay">
+                            <a href="{{ route('client.sale-four') }}" class="promo-image promo-overlay">
                                 <img src="{{asset('assets/front/image/bg-images/promo-banner-with-text-big.jpg')}}" alt="">
                             </a>
                         </div>
                         <div class="col-lg-4 mb--30">
-                            <a href="" class="promo-image promo-overlay">
+                            <a href="{{ route('client.sale-four') }}" class="promo-image promo-overlay">
                                 <img src="{{asset('assets/front/image/bg-images/promo-banner-with-text-2--small.jpg')}}" alt="">
                             </a>
                         </div>
@@ -492,7 +492,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -544,7 +544,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -595,7 +595,7 @@
                                                     <div class="price-block">
                                                         <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                                                         <del class="price-old">£ {{$product->price}}</del>
-                                                        <span class="price-discount">£{{ $product->percent }}</span>
+                                                        <span class="price-discount">%{{ $product->percent }}</span>
                                                     </div>
                                                 </div>
                                             </div>

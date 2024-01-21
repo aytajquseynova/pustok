@@ -1,19 +1,24 @@
 <footer class="site-footer">
     <div class="container">
         <div class="row justify-content-between  section-padding">
+            @foreach ($contacts as $contact)
+
+
             <div class=" col-xl-3 col-lg-4 col-sm-6">
                 <div class="single-footer pb--40">
                     <div class="brand-footer footer-title">
                         <img src="{{asset('assets/front/image/logo--footer.png')}}" alt="">
                     </div>
                     <div class="footer-contact">
-                        <p><span class="label">{{__('routes.address')}}:</span><span class="text">Example Street 98, HH2 BacHa, New York, USA</span></p>
-                        <p><span class="label">{{__('routes.phone')}}:</span><span class="text">+18088 234 5678</span></p>
-                        <p><span class="label">{{__('routes.email')}}:</span><span class="text">support@hastech.com</span></p>
+                        <p><span class="label">{{__('routes.address')}}:</span><span class="text">{{$contact->address}}</span></p>
+                        <p><span class="label">{{__('routes.phone')}}:</span><span class="text">{{$contact->phone3}}</span></p>
+                        <p><span class="label">{{__('routes.email')}}:</span><span class="text">{{$contact->email}}</span></p>
 
 
                     </div>
+
                 </div>
+             @endforeach
             </div>
             <div class=" col-xl-3 col-lg-2 col-sm-6">
                 <div class="single-footer pb--40">

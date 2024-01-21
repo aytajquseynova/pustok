@@ -32,12 +32,15 @@
                             at ilayout.</p>
                     </div>
                     <div class="address_wrapper">
+                        @foreach ($contacts as $contact)
+
+
                         <div class="address">
                             <div class="icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Address:</span> 1234 - Bandit Tringi lAliquam <br> Vitae. New York</p>
+                                <p><span>Address:</span> {{$contact->address}}<br></p>
                             </div>
                         </div>
                         <div class="address">
@@ -45,7 +48,7 @@
                                 <i class="far fa-envelope"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Email: </span> support@example.com </p>
+                                <p><span>Email: </span>{{$contact->email}} </p>
                             </div>
                         </div>
                         <div class="address">
@@ -53,9 +56,10 @@
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
                             <div class="contact-info-text">
-                                <p><span>Phone:</span> (800) 0123 456 789 </p>
+                                <p><span>Phone:</span> {{$contact->phone2}}</p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

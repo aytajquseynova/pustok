@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\BrandsController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\ContactController as AdminContactController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\ShopListController;
@@ -20,8 +21,10 @@ use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
 use App\Http\Controllers\front\CurrencyController;
+use App\Http\Controllers\front\SaleController as FrontSaleController;
 use App\Http\Controllers\front\ShoppingCartController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +65,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/productDetails', [ProductDetailsController::class, 'index'])->name('productDetails');
     Route::get('/orderComplete', [OrderCompleteController::class, 'index'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
+    Route::get('/sale-four', [FrontSaleController::class, 'index'])->name('sale-four');
 });
 
 
@@ -84,7 +88,7 @@ Route::group([
     Route::get('/product_images/{id}', [ProductsController::class, 'product_images'])->name('product_images');
     Route::get('/images/main/{id}/{product_id}', [ProductsController::class, 'add_main_image'])->name('add_main_image');
     Route::resource('/brands', BrandsController::class);
-
+    Route::resource('/contacts', AdminContactController::class);
 
     Route::prefix('language-line')->controller(LanguageLineController::class)->group(function () {
         Route::get('/', 'index')->name('languageLine.index');
