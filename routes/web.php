@@ -62,7 +62,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::post('/checkout', [CheckOutController::class, 'request'])->name('checkout.post');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/myaccount', [MyAccountController::class, 'index'])->name('myaccount');
-    Route::get('/productDetails', [ProductDetailsController::class, 'index'])->name('productDetails');
+    Route::get('/productDetails/{id}', [ProductDetailsController::class, 'index'])->name('productDetails');
     Route::get('/orderComplete', [OrderCompleteController::class, 'index'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
     Route::get('/sale-four', [FrontSaleController::class, 'index'])->name('sale-four');

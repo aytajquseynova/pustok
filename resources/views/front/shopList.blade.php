@@ -110,7 +110,7 @@
                                 <a href="" class="author">
                                     {{$product->author}}
                                 </a>
-                                <h3><a href="{{route('client.productDetails')}}">{{$product->title}}</a></h3>
+                                <h3><a href="{{route('client.productDetails', $product->id)}}">{{$product->title}}</a></h3>
                             </div>
                             <div class="product-card--body">
                                 <div class="card-image">
@@ -150,7 +150,7 @@
                                     <a href="" class="author">
                                         Gpple
                                     </a>
-                                    <h3><a href="{{route('client.productDetails')}}" tabindex="0">Qpple cPad with Retina Display
+                                    <h3><a href="{{route('client.productDetails',  $product->id)}}" tabindex="0">Qpple cPad with Retina Display
                                             MD510LL/A</a></h3>
                                 </div>
                                 <article>

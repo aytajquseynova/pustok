@@ -3,60 +3,68 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Products;
 use App\Models\WishItem;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class WishListController extends Controller
 {
+  public function index($id = null)
+{
+    if (auth()->user()) {
+        // Load wish items for the authenticated user
+        $user_id = auth()->user()->id ;
+        $wishlist = WishItem::where('user_id', $user_id)->get();
 
-    public function index($id = null)
-    {
-        if (auth()->user()) {
-            $wishlist = WishItem::all();
+        $products = [];
 
-            $products = [];
-            if ($id !== null) {
-                $addedProduct = $wishlist->where('product_id', $id)->first();
-                if (!$addedProduct) {
-                    $data = [
-                        'product_id' => $id,
-                        'user_id' => auth()->user()->id,
-                    ];
+        if ($id !== null) {
+            $addedProduct = $wishlist->where('product_id', $id)->first();
 
-                    $created = WishItem::create($data);
+            if (!$addedProduct) {
+                $data = [
+                    'product_id' => $id,
+                    'user_id'=> $user_id,
+                ];
 
-                    if (!$created) {
-                        return redirect()->back();
-                    }
+                // Use the relationship to create a new wish item
+                $created = WishItem::create($data);
 
-                    $wishlist->add($created);
-                } else {
+
+                if (!$created) {
                     return redirect()->back();
+                }else{
+                    $wishlist->add($created);
                 }
+            } else {
+                return redirect()->back();
             }
-
-            foreach ($wishlist as $key => $wishitem) {
-                $products[] = Products::findOrFail($wishitem->product_id);
-            }
-
-            return view('front.wishlist', compact('products'));
-        } else {
-            return redirect()->route('auth.signin');
         }
+
+        // Load products based on wish items
+        foreach ($wishlist as $key => $wishitem) {
+            $products[] = Products::findOrFail($wishitem->product_id);
+        }
+
+        return view('front.wishlist', compact('products'));
+    } else {
+        return redirect()->route('auth.signin');
     }
-
-    public function remove($id)
+}
+ public function remove($id)
     {
+        // Find the wish item with the given product_id for the authenticated user
         $wishitem = WishItem::where('product_id', $id)->first();
-        $deleted = $wishitem->delete();
 
-        if (!$deleted) {
-            return redirect()->back()->with('wishlist wasnt deleted');
+        if ($wishitem) {
+            // Delete the wish item
+            $wishitem->delete();
+
+        // $user_id = auth()->user()->id ;
+        // $wishlist = WishItem::where('user_id', $user_id)->get();
+            return redirect()->route('client.wishList')->with('success', 'Item removed from wishlist');
         } else {
-            return redirect()->route('client.wishList')->with('success');
+            return redirect()->back()->with('error', 'Wishlist item not found');
         }
     }
 }

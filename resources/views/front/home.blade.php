@@ -113,7 +113,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -121,7 +121,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -174,7 +174,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -182,7 +182,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -270,7 +270,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -278,7 +278,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -323,7 +323,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -331,7 +331,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -377,7 +377,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -385,7 +385,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -467,7 +467,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -475,7 +475,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -519,7 +519,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -527,7 +527,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -571,7 +571,7 @@
                                                     <a href="" class="author">
                                                         {{ $product->author }}
                                                     </a>
-                                                    <h3><a href="{{route('client.productDetails')}}">{{ $product->name }}</a></h3>
+                                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{ $product->name }}</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -579,7 +579,7 @@
                                                             <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" class="img-fluid">
                                                         </a>
                                                         <div class="hover-contents">
-                                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                                 <img src="{{asset('assets/front/image/products/product-1.jpg')}}" alt="">
                                                             </a>
                                                             <div class="hover-btns">

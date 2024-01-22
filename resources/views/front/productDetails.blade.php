@@ -81,13 +81,6 @@
                         {{ $category->title }}
                     </h3>
                     <ul class="list-unstyled">
-                        <li> Ex Tax:<span class="list-value"> £{{ $category->ex_tax }}</span></li>
-                        <li>
-                            Brands:
-                            <a href="#" class="list-value font-weight-bold"> {{ $category->brands }} </a>
-                        </li>
-                        <li>Product Code: <span class="list-value"> {{ $category->product_code }} </span></li>
-                        <li>Reward Points: <span class="list-value"> {{ $category->reward_points }}</span></li>
                         <li>
                             Availability: <span class="list-value">
                                 @if ($category->availability == 0)
@@ -126,7 +119,7 @@
             @endif
             @endforeach
         </div>
-       
+
 
     </div>
     <!--=================================
@@ -135,7 +128,7 @@
     <section class="">
         <div class="container">
             <div class="section-title section-title--bordered">
-                <h2>RELATED PRODUCTS</h2>
+                <h2>New arrivals</h2>
             </div>
             <div class="product-slider sb-slick-slider slider-border-single-row" data-slick-setting='{
                 "autoplay": true,
@@ -154,7 +147,7 @@
                         <div class="product-header">
                             <a href="" class="author"> {{$product->author}} </a>
                             <h3>
-                                <a href="{{route('client.productDetails')}}">{{$product->title}}</a>
+                                <a href="{{route('client.productDetails', $product->id)}}">{{$product->title}}</a>
                             </h3>
                         </div>
                         <div class="product-card--body">

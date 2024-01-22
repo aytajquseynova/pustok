@@ -149,6 +149,11 @@
                                     <li class="menu-item">
                                         <a href="{{route('client.contact')}}">{{__('routes.contact')}}</a>
                                     </li>
+                                         <li class="menu-item ">
+                                 <a href="{{ route('client.wishList') }}" class="single-btn">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                 </li>
                                 </ul>
                             </div>
                         </div>
@@ -232,6 +237,11 @@
                                 </li>
 
                                 <li><a href="{{route('client.contact')}}">{{__('routes.contact')}}</a></li>
+                                     <li>
+                                 <a href="{{ route('client.wishList') }}" class="single-btn">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                 </li>
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
@@ -307,6 +317,11 @@
                                 <li class="menu-item">
                                     <a href="{{route('client.contact')}}">{{__('routes.contact')}}</a>
                                 </li>
+                                      <li class="menu-item ">
+                                 <a href="{{ route('client.wishList') }}" class="single-btn">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                 </li>
                             </ul>
                         </div>
                     </div>
