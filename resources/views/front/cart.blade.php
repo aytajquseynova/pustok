@@ -98,14 +98,14 @@
                                     <span class="author">
                                         {{$product->author}}
                                     </span>
-                                    <h3><a href="{{route('client.productDetails')}}">Revolutionize Your BOOK With These
+                                    <h3><a href="{{route('client.productDetails', $product->id)}}">Revolutionize Your BOOK With These
                                             Easy-peasy Tips</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">
                                         <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" alt="">
                                         <div class="hover-contents">
-                                            <a href="{{route('client.productDetails')}}" class="hover-image">
+                                            <a href="{{route('client.productDetails', $product->id)}}" class="hover-image">
                                                 <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}" alt="">
                                             </a>
                                             <div class="hover-btns">

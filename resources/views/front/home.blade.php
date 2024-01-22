@@ -237,7 +237,7 @@
                                     <span class="arrow-icon"></span>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="men-tab" data-toggle="tab" href="#men" role="tab" aria-controls="men" aria-selected="true">
+                                    <a class="" id="men-tab" data-toggle="tab" href="#men" role="tab" aria-controls="men" aria-selected="true">
                                         New Arrivals
                                     </a>
                                     <span class="arrow-icon"></span>

@@ -4,6 +4,13 @@
 
 <div class="content-wrapper ml-2">
     <div class="card card-primary">
+        @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li class="text-danger"> {{$error}}</li>
+            @endforeach
+        </ul>
+        @endif
         <!-- form start -->
         <form method="POST" action="{{ route('admin.products.update', $product->id) }}" enctype="multipart/form-data">
             @csrf
@@ -44,13 +51,7 @@
                         <option value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
                     </select>
-                    <label for="exampleSelectRounded0">Select related brands</label>
-                    <select name="brand_id" class="custom-select rounded-0" id="exampleSelectRounded0">
-                        <option value="0">main brand</option>
-                        @foreach($brands as $brand)
-                        <option value="{{$brand->id}}">{{$brand->title}}</option>
-                        @endforeach
-                    </select>
+
                 </div>
 
                 <div class="card-footer">

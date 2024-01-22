@@ -93,15 +93,15 @@ class ProductsController extends Controller
     {
         $product = Products::findOrFail($id);
         $categories = Category::all();
-        $brands = Brand::all();
 
-        return view('admin.products.edit', compact('product', 'categories', 'brands'));
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'brand_id' => 'required|exists:brands,id',
+
             'main_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // Add other validation rules as needed
         ]);

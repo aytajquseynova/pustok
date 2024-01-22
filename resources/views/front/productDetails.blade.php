@@ -27,21 +27,12 @@
               "swipe": false,
               "asNavFor": ".product-slider-nav"
               }'>
+                    @foreach ($images as $image)
                     <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-1.jpg')}}" alt="" />
+                        <img src="{{asset($image)}}" alt="" />
                     </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-2.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-3.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-4.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-5.jpg')}}" alt="" />
-                    </div>
+                    @endforeach
+
                 </div>
                 <!-- Product Details Slider Nav -->
                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
@@ -55,50 +46,47 @@
               "asNavFor": ".product-details-slider",
               "focusOnSelect": true
               }'>
+                     @foreach ($images as $image)
                     <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-1.jpg')}}" alt="" />
+                        <img src="{{asset($image)}}" alt="" />
                     </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-2.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-3.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-4.jpg')}}" alt="" />
-                    </div>
-                    <div class="single-slide">
-                        <img src="{{asset('assets/front/image/products/product-details-5.jpg')}}" alt="" />
-                    </div>
+                    @endforeach
                 </div>
             </div>
-            @foreach($categories as $index => $category)
-            @if($index === 0)
+
+
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30">
                     <!-- ... (other code) ... -->
                     <h3 class="product-title">
-                        {{ $category->title }}
+                        {{ $product->title }}
                     </h3>
+
                     <ul class="list-unstyled">
                         <li>
+                            Category : <span class="list-value">
+                              {{$category->title}}
+                            </span>
+                        </li>
+                        <li>
                             Availability: <span class="list-value">
-                                @if ($category->availability == 0)
+                                @if ($product->availability == 0)
                                 Out of Stock
                                 @else
                                 In Stock
                                 @endif
                             </span>
                         </li>
+
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">{{ $category->price }}</span>
-                        <del class="price-old">{{ $category->old_price }}</del>
+                        <span class="price-new">{{ $product->price }}</span>
+                        <del class="price-old">{{ $product->old_price }}</del>
                     </div>
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summary</h4>
                         <p>
-                            {{$category->description}}
+                            {{$product->description}}
                         </p>
                     </article>
                         <div class="add-to-cart-row">
@@ -115,9 +103,8 @@
                     </div>
                 </div>
             </div>
-            @break
-            @endif
-            @endforeach
+
+
         </div>
 
 
@@ -241,26 +228,26 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach($categories as $category)
+                        @foreach($categories as $product)
                         <div class="col-lg-7 mt--30 mt-lg--30">
                             <div class="product-details-info pl-lg--30">
                                 <p class="tag-block">
                                     Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
                                 </p>
                                 <h3 class="product-title">
-                                    {{ $category->title }}
+                                    {{ $product->title }}
                                 </h3>
                                 <ul class="list-unstyled">
-                                    <li>Ex Tax: <span class="list-value"> £{{ $category->ex_tax }}</span></li>
+                                    <li>Ex Tax: <span class="list-value"> £{{ $product->ex_tax }}</span></li>
                                     <li>
                                         Brands:
-                                        <a href="#" class="list-value font-weight-bold">{{ $category->brands }}</a>
+                                        <a href="#" class="list-value font-weight-bold">{{ $product->brands }}</a>
                                     </li>
-                                    <li>Product Code: <span class="list-value"> {{ $category->product_code }}</span></li>
-                                    <li>Reward Points: <span class="list-value"> {{ $category->reward_points }}</span></li>
+                                    <li>Product Code: <span class="list-value"> {{ $product->product_code }}</span></li>
+                                    <li>Reward Points: <span class="list-value"> {{ $product->reward_points }}</span></li>
                                     <li>
                                         Availability: <span class="list-value">
-                                            @if ($category->availability == 0)
+                                            @if ($product->availability == 0)
                                             Out of Stock
                                             @else
                                             In Stock
@@ -269,8 +256,8 @@
                                     </li>
                                 </ul>
                                 <div class="price-block">
-                                    <span class="price-new">£{{ $category->price }}</span>
-                                    <del class="price-old">£{{ $category->old_price }}</del>
+                                    <span class="price-new">£{{ $product->price }}</span>
+                                    <del class="price-old">£{{ $product->old_price }}</del>
                                 </div>
                                 <article class="product-details-article">
                                     <h4 class="sr-only">Product Summary</h4>

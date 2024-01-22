@@ -14,9 +14,20 @@ class ProductDetailsController extends Controller
     {
         $product = Products::where('id',$id)->first();
 
+
         $category = Category::where('id',$product->category_id)->first();
 
-        $images = Images::where('product_id', $product->id)->get();
+        $images = [];
+
+        if($product){
+           $images[]= $product->main_image;
+        }
+
+        $imgs = Images::where('product_id', $product->id)->pluck('img')->toArray();
+        if ($imgs) {
+            $images = array_merge($images, $imgs);
+        }
+
 
        $products = Products::orderBy('created_at', 'desc')->take(6)->get();
 

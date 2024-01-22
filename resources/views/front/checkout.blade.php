@@ -20,137 +20,71 @@
         <div class="row">
             <div class="col-12">
                 <!-- Checkout Form s-->
-                <form action="" class="checkout-form">
+                @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="text-danger"> {{$error}}</li>
+                    @endforeach
+                </ul>
+                @endif
+                <form action="{{route('client.checkout.post')}}" class="checkout-form" method="POST">
                     <div class="row row-40">
                         <div class="col-12">
                         </div>
                         <div class="col-lg-7 mb--20">
-                            <!-- Billing Address -->
+									<!-- Billing Address -->
+									<div id="billing-form" class="mb-40">
+										<h4 class="checkout-title">Billing Address</h4>
+										<div class="row">
+											<div class="col-md-6 col-12 mb--20">
+												<label>First Name*</label>
+												<input type="text" name="name" placeholder="First Name">
+											</div>
+											<div class="col-md-6 col-12 mb--20">
+												<label>Last Name*</label>
+												<input type="text" name="surname" placeholder="Last Name">
+											</div>
+											<div class="col-12 mb--20">
+												<label>Company Name</label>
+												<input type="text" name="company_name" placeholder="Company Name">
+											</div>
 
-                            <div id="billing-form" class="mb-40">
-                                <h4 class="checkout-title">Billing Address</h4>
-                            @if(session()->has('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
+											<div class="col-md-6 col-12 mb--20">
+												<label>Email Address*</label>
+												<input type="email"name="email" placeholder="Email Address">
+											</div>
+											<div class="col-md-6 col-12 mb--20">
+												<label>Phone no*</label>
+												<input type="text" name="phone" placeholder="Phone number">
+											</div>
+											<div class="col-12 mb--20">
+												<label>Address*</label>
+												<input type="text" name="address" placeholder="Address line 1">
+											</div>
+											<div class="col-md-6 col-12 mb--20">
+												<label>Town/City*</label>
+												<input type="text" name="town_city" placeholder="Town/City">
+											</div>
+											<div class="col-md-6 col-12 mb--20">
+												<label>State*</label>
+												<input type="text" name="state" placeholder="State">
+											</div>
+											<div class="col-md-6 col-12 mb--20">
+												<label>Zip Code*</label>
+												<input type="text" name="zip_code" placeholder="Zip Code">
+											</div>
+											<div class="col-12 mb--20 ">
 
-                            <form method="POST" action="{{ route('client.checkout.post') }}" class="checkout-form">
-                             @csrf
-                                <div class="row">
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>First Name*</label>
-                                        <input type="text" name="name" placeholder="First Name">
-                                    </div>
-                                     @error('name')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Last Name*</label>
-                                        <input type="text" name="surname" placeholder="Last Name">
-                                    </div>
-                                     @error('surname')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-12 mb--20">
-                                        <label>Company Name</label>
-                                        <input type="text" name="company_name" placeholder="Company Name">
-                                    </div>
-                                     @error('company_name')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-12 col-12 mb--20">
-                                        <label>Country*</label>
-                                        <select class="nice-select" name="country">
-                                            <option>Azerbaijan</option>
-                                            <option>Germany</option>
-                                            <option>Turkey</option>
-                                            <option>Italy</option>
-                                            <option>Other</option>
-                                        </select>
-                                    </div>
-                                     @error('country')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Email Address*</label>
-                                        <input type="email" name="email" placeholder="Email Address">
-                                    </div>
-                                     @error('email')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Phone no*</label>
-                                        <input type="text" name="phone" placeholder="Phone number">
-                                    </div>
-                                     @error('phone')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-12 mb--20">
-                                        <label>Address*</label>
-                                        <input type="text"  name="address" placeholder="Address line 1">
-                                    </div>
-                                     @error('address')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Town/City*</label>
-                                        <input type="text" name="town_city" placeholder="Town/City">
-                                    </div>
-                                     @error('town_city')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>State*</label>
-                                        <input type="text" name="state" placeholder="State">
-                                    </div>
-                                     @error('state')
-                                    <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                    <div class="col-md-6 col-12 mb--20">
-                                        <label>Zip Code*</label>
-                                        <input type="text" name="zip_code" placeholder="Zip Code">
-                                    </div>
-                                     @error('zip_code')
-                                        <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                            {{$message}}
-                                        </div>
-                                    @enderror
-                                    <div class="col-12 mb--20 ">
+											</div>
+										</div>
+									</div>
+									<!-- Shipping Address -->
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-note-block mt--30">
-                                <label for="order-note">Order notes</label>
-                                <textarea name="order_notes" id="order-note" cols="30" rows="10" class="order-note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                            </div>
-                             @error('order_notes')
-                            <div style="font-size: 12px; margin-top: -18px; margin-left: 15px; padding: 10px;" class="alert alert-danger" role="alert">
-                                {{$message}}
-                            </div>
-                            @enderror
-                            <button type="submit" class="place-order w-100" >Place order</button>
-                            </form>
-                        </div>
+									<div class="order-note-block mt--30">
+										<label for="order-note">Order notes</label>
+										<textarea id="order-note" name="order_notes" cols="30" rows="10" class="order-note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+									</div>
+								</div>
                         <div class="col-lg-5">
                             <div class="row"><h2 class="checkout-title">YOUR ORDER</h2>
                                 <!-- Cart Total -->
@@ -169,7 +103,7 @@
                         <div class="col-12">
                             <div class="checkout-cart-total">
                                 <h4>Grand Total <span>£ {{ Cart::subtotal() }}</span></h4>
-
+                                <button class="place-order w-100" type="submit">Place order</button>
 
                             </div>
                         </div>

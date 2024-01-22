@@ -19,9 +19,9 @@ class CheckOutController extends Controller
 
     public function request(CheckoutRequest $request){
         $created = Checkout::create($request->all());
-        dd($created);
+
         if ($created) {
-            return redirect()->route('login.checkout');
+            return redirect()->route('client.orderComplete');
         } else {
             dd('error');
         }
