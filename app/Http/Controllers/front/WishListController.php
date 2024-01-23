@@ -43,8 +43,15 @@ class WishListController extends Controller
 
         // Load products based on wish items
         foreach ($wishlist as $key => $wishitem) {
-            $products[] = Products::findOrFail($wishitem->product_id);
+            $product = Products::where('id', $wishitem->product_id)->first();
+            if ($product) {
+                        $products[] = $product;
+            }else{
+                $wishitem->delete();
+            }
+
         }
+
 
         return view('front.wishlist', compact('products'));
     } else {

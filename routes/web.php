@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\LanguageLineController;
 use App\Http\Controllers\front\CurrencyController;
 use App\Http\Controllers\front\SaleController as FrontSaleController;
 use App\Http\Controllers\front\ShoppingCartController;
+use App\Http\Controllers\front\UserController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SubscriptionController;
@@ -51,6 +52,8 @@ Route::group(['prefix' => '', 'as' => 'auth.'], function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
 
     Route::get('/logout', [LogOutController::class, 'logout'])->name('logout');
+
+
 });
 
 
@@ -97,6 +100,8 @@ Route::group([
         Route::get('/{languageLine}', 'destroy')->name('languageLine.destroy');
         Route::get('/{languageLine}/edit', 'edit')->name('languageLine.edit');
         Route::put('/{languageLine}', 'update')->name('languageLine.update');
+        Route::delete('{languageLine}/{id}', 'destroy')->name('languageLine.destroy');
+
     });
 });
 
@@ -117,4 +122,6 @@ Route::get("/clear-cart", [ShoppingCartController::class, "destroy"])->name('cle
 Route::get('/wishList/{id}', [WishListController::class, 'index'])->name('wishlist-add');
 Route::get('/remove-wishitem/{id}', [WishListController::class, 'remove'])->name('wishitem-remove');
 
-Route::get("/currency", [CurrencyController::class, "index"])->name('currency');
+
+
+

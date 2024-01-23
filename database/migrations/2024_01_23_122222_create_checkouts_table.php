@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('zip_code');
             $table->text('order_notes')->nullable();
+            $table->unsignedBigInteger('user_id')->default(1);
             $table->timestamps();
         });
     }

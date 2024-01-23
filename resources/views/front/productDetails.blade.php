@@ -80,8 +80,9 @@
 
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">{{ $product->price }}</span>
-                        <del class="price-old">{{ $product->old_price }}</del>
+                        <span class="price-new">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+                        <del class="price-old">£ {{$product->price}}</del>
+                        <span class="price-discount">%{{ $product->percent }}</span>
                     </div>
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summary</h4>
@@ -91,15 +92,15 @@
                     </article>
                         <div class="add-to-cart-row">
                         <div class="count-input-block">
-                            <span class="widget-label">Qty</span>
+                            <span class="widget-label"></span>
                             <input type="number" class="form-control text-center" value="1" />
                         </div>
                         <div class="add-cart-btn">
-                            <a href="" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
+                            <a href="{{ route('add', ['id' => $product->id]) }}" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                         </div>
                     </div>
                     <div class="compare-wishlist-row">
-                        <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
+                        <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
                     </div>
                 </div>
             </div>
@@ -273,11 +274,11 @@
                                         <input type="number" class="form-control text-center" value="1" />
                                     </div>
                                     <div class="add-cart-btn">
-                                        <a href="" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
+                                        <a href="{{ route('add', ['id' => $product->id]) }}" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                                     </div>
                                 </div>
                                 <div class="compare-wishlist-row">
-                                    <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
+                                    <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
                                 </div>
                             </div>
                         </div>

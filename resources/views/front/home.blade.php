@@ -23,7 +23,7 @@
                                     <p>Cover up front of book and
                                         <br>leave summary
                                     </p>
-                                    <a href="shop-grid.html" class="btn btn-outlined--pink">
+                                    <a href="{{route('client.shopList')}}" class="btn btn-outlined--pink">
                                         Shop Now
                                     </a>
                                 </div>
@@ -37,7 +37,7 @@
                                     <h1 class="v2">I Love This Idea!</h1>
                                     <h2>Cover up front of book and
                                         leave summary</h2>
-                                    <a href="shop-grid.html" class="btn btn--yellow">
+                                    <a href="{{route('client.shopList')}}" class="btn btn--yellow">
                                         Shop Now
                                     </a>
                                 </div>

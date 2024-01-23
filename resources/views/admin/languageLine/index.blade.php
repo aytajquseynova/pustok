@@ -27,8 +27,16 @@
                 <td>{{json_encode($language->text)}}</td>
                 <td>
                     <div class="list-icons">
-                        <a href="{{route('admin.languageLine.edit',$language->id)}}" class="list-icons-item"><i class="icon-pencil7"></i></a>
-                        <a href="{{route('admin.languageLine.destroy',$language->id)}}" class="list-icons-item"><i class="icon-trash"></i></a>
+                        <a  href="{{route('admin.languageLine.edit',$language->id)}}" class="list-icons-item">Edit</a>
+                    @if(isset($languageLine))
+                        <form action="{{ route('admin.languageLine.destroy', ['id' => $languageLine->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger ml-2">Delete</button>
+                        </form>
+                    @endif
+
+
                     </div>
                 </td>
             </tr>

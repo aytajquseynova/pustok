@@ -14,7 +14,7 @@ class SaleController extends Controller
 {
     // Tüm ürünleri al
 
-     $selectedProducts = Products::where('percent', '>', 40)->paginate(12);
+     $selectedProducts = Products::where('percent', '<', 40)->paginate(12);
 
     // Kategorileri al
     $categories = Category::all();

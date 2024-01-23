@@ -12,7 +12,7 @@ class LanguageLineController extends Controller
 {
     public function index()
     {
-       
+
         $data = LanguageLine::all();
         return view('admin.languageLine.index', compact('data'));
     }
@@ -21,13 +21,13 @@ class LanguageLineController extends Controller
     {
         $locales = LaravelLocalization::getSupportedLocales();
         $langs = array_keys($locales);
-    
+
         return view('admin.languageLine.create', compact('langs'));
     }
 
     public function store(Request $request)
     {
-      
+
         $request->validate([
             'group' => 'required',
             'key' => 'required',
@@ -44,4 +44,25 @@ class LanguageLineController extends Controller
             ->with('type', 'success')
             ->with('message', 'Language Line has been stored.');
     }
+    public function edit($id)
+{
+    $locales = LaravelLocalization::getSupportedLocales();
+    $langs = array_keys($locales);
+
+    // Fetch the language line based on the provided $id
+    $languageLine = LanguageLine::findOrFail($id);
+
+    return view('admin.languageLine.edit', compact('langs', 'languageLine'));
+}
+
+
+        public function destroy($id)
+        {
+            $languageLine = LanguageLine::findOrFail($id);
+            $languageLine->delete();
+
+            return redirect()->route('admin.languageLine.index')
+                ->with('type', 'success')
+                ->with('message', 'Language Line has been deleted.');
+        }
 }

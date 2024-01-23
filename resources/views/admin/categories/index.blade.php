@@ -13,10 +13,7 @@
                     <th style="width: 5%">Status</th>
                     <th style="width: 10%">Tags</th>
                     <th style="width: 10%">Product Title</th>
-                    <th style="width: 5%">Ex Tax</th>
-                    <th style="width: 10%">Brands</th>
-                    <th style="width: 10%">Product Code</th>
-                    <th style="width: 5%">Reward Points</th>
+
                     <th style="width: 5%">Availability</th>
                     <th style="width: 5%">Price</th>
                     <th style="width: 5%">Old Price</th>
@@ -33,10 +30,6 @@
                     <td>{{$category->status}}</td>
                     <td>{{$category->tags}}</td>
                     <td>{{$category->product_title}}</td>
-                    <td>{{$category->ex_tax}}</td>
-                    <td>{{$category->brands}}</td>
-                    <td>{{$category->product_code}}</td>
-                    <td>{{$category->reward_points}}</td>
                     <td>{{$category->availability}}</td>
                     <td>{{$category->price}}</td>
                     <td>{{$category->old_price}}</td>
@@ -53,7 +46,7 @@
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
-                        </div>    
+                        </div>
                     </td>
                 </tr>
                 @endforeach

@@ -8,6 +8,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+            
           <th>Author</th>
           <th>Title</th>
           <th style="width: 40px">Image</th>

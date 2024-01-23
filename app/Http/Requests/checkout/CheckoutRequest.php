@@ -32,7 +32,6 @@ class CheckoutRequest extends FormRequest
             'state' =>'required',
             'zip_code'=>'required',
             'order_notes'=>'string'
-
         ];
     }
 }

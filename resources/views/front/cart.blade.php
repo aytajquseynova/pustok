@@ -139,7 +139,7 @@
                         </div>
                         <div class="cart-summary-button">
                             <a href="{{route('client.checkout')}}" class="checkout-btn c-btn btn--primary">Checkout</a>
-                            <button class="update-btn c-btn btn-outlined">Update Cart</button>
+
                         </div>
                     </div>
                 </div>

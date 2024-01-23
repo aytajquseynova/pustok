@@ -50,6 +50,7 @@
                             <tr>
                                 <th>Subtotal:</th>
                                 <td><span>£ {{ Cart::subtotal() }}</span></td>
+                                {{Cart::destroy()}};
                             </tr>
                         </tfoot>
                     </table>

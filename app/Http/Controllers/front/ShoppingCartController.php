@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Products; // Make sure to import the Products model
+use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -11,17 +11,22 @@ class ShoppingCartController extends Controller
 {
     public function add($id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('auth.signin')->with('error', 'Please sign in to add products to the cart.');
+        }
+
         $product = Products::find($id);
-       
+
         if ($product) {
             $discountedPrice = $product->price - ($product->price * $product->percent / 100);
 
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->title,
-                'author'=> $product->author,
-                'percent'=> $product->percent,
-                'qty'=> 1,
+                'author' => $product->author,
+                'percent' => $product->percent,
+                'user_id' => $product -> user_id,
+                'qty' => 1,
                 'price' => $discountedPrice,
                 'weight' => 50,
                 'options' => [
@@ -30,6 +35,7 @@ class ShoppingCartController extends Controller
                 ]
             ]);
         }
+
         return redirect()->back();
     }
 
@@ -45,3 +51,4 @@ class ShoppingCartController extends Controller
         return redirect()->back();
     }
 }
+
