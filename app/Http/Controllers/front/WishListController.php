@@ -55,7 +55,7 @@ class WishListController extends Controller
 
         return view('front.wishlist', compact('products'));
     } else {
-        return redirect()->route('auth.signin');
+        return redirect()->route('auth.signin')->with('error', 'Please sign in to add products to the wishlist.');
     }
 }
  public function remove($id)

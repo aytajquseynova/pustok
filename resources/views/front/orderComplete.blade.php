@@ -24,10 +24,26 @@
                     <h1>Thank you !</h1>
                     <p>Your order has been received.</p>
                 </div>
+
                 <ul class="order-details-list">
                     <li>Order Number: <strong>{{ uniqid() }}</strong></li>
                     <li>Date: <strong>{{ now()->format('M d, Y') }}</strong></li>
                     <li>Total: <strong>£ {{ Cart::subtotal() }}</strong></li>
+                    @foreach($order_items as $order_item)
+                            <li>Name: {{ $order_item->name }}</li>
+                            <li>Surname: {{ $order_item->surname }}</li>
+                            <li>Company Name: {{ $order_item->company_name }}</li>
+                            <li>Email: {{ $order_item->email }}</li>
+                            <li>Phone: {{ $order_item->phone }}</li>
+                            <li>Address: {{ $order_item->address }}</li>
+                            <li>Town/City: {{ $order_item->town_city }}</li>
+                            <li>State: {{ $order_item->state }}</li>
+                            <li>Zip Code: {{ $order_item->zip_code }}</li>
+                            <li>Order Notes: {{ $order_item->order_notes }}</li>
+                            <li>Subtotal: £ {{ Cart::subtotal() }}</li>
+                            <hr>
+                    @endforeach
+
                 </ul>
                 <h3 class="order-table-title">Order Details</h3>
                 <div class="table-responsive">

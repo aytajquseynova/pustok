@@ -50,9 +50,10 @@
 											</div>
 
 											<div class="col-md-6 col-12 mb--20">
-												<label>Email Address*</label>
-												<input type="email"name="email" placeholder="Email Address">
-											</div>
+                                                <label>Email Address*</label>
+                                                <input type="email" name="email" placeholder="Email Address" value="{{ auth()->user()->email }}" readonly>
+                                            </div>
+
 											<div class="col-md-6 col-12 mb--20">
 												<label>Phone no*</label>
 												<input type="text" name="phone" placeholder="Phone number">
