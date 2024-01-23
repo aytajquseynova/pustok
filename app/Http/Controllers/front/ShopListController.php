@@ -15,6 +15,6 @@ class ShopListController extends Controller
         $categories = Category::all();
         return view('front.shopList', compact('products', 'categories'));
 
-        
+
     }
 }

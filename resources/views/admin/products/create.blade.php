@@ -8,23 +8,30 @@
   </div>
   <!-- /.card-header -->
   <!-- form start -->
+                  @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="text-danger"> {{$error}}</li>
+                    @endforeach
+                </ul>
+                @endif
   <form enctype="multipart/form-data" method="POST" action="{{route('admin.products.store')}}">
     @csrf
     <div class="form-group">
       <label for="author">Author</label>
-      <input name="author" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <input name="author" value="" type="text" class="form-control" id="author" placeholder="Enter author">
     </div>
     <div class="form-group">
       <label for="title">Title</label>
-      <input name="title" value="" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <input name="title" value="" type="text" class="form-control" id="title" placeholder="Enter title">
     </div>
     <div class="form-group">
       <label for="price">Price</label>
-      <input name="price" value="" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <input name="price" value="" type="number" class="form-control" id="price" placeholder="Enter price">
     </div>
     <div class="form-group">
       <label for="percent">Percent </label>
-      <input name="percent" value="" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+      <input name="percent" value="" type="number" class="form-control" id="percent" placeholder="Enter percent">
     </div>
     <div class="form-group">
       <label for="image">Image </label>

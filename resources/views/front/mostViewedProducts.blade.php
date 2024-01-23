@@ -35,17 +35,26 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
-
-                        <span>Sort By:</span>
-                        <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
-                            <option value="" selected="selected">Default Sorting</option>
-                            <option value="fromAtoZ">Sort By: Name (A - Z)</option>
-                            <option value="fromZtoA">Sort By: Name (Z - A)</option>
-                            <option value="priceLowtoHigh">Sort By: Price (Low > High)</option>
-                            <option value="priceHightoLow">Sort By: Price (High > Low)</option>
-
-                        </select>
-
+                            <span>Sort By:</span>
+                            <select class="form-control nice-select sort-select mr-0">
+                                <option value="" selected="selected">Default Sorting</option>
+                                <option value="">Sort
+                                    By:Name (A - Z)</option>
+                                <option value="">Sort
+                                    By:Name (Z - A)</option>
+                                <option value="">Sort
+                                    By:Price (Low &gt; High)</option>
+                                <option value="">Sort
+                                    By:Price (High &gt; Low)</option>
+                                <option value="">Sort
+                                    By:Rating (Highest)</option>
+                                <option value="">Sort
+                                    By:Rating (Lowest)</option>
+                                <option value="">Sort
+                                    By:Model (A - Z)</option>
+                                <option value="">Sort
+                                    By:Model (Z - A)</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -68,21 +77,28 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
-                        <span>Sort By:</span>
-                        <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
-                            <option value="" selected="selected">Default Sorting</option>
-                            <option value="fromAtoZ">Sort By: Name (A - Z)</option>
-                            <option value="fromZtoA">Sort By: Name (Z - A)</option>
-                            <option value="priceLowtoHigh">Sort By: Price (Low > High)</option>
-                            <option value="priceHightoLow">Sort By: Price (High > Low)</option>
-
-                        </select>
+                            <span>Sort By:</span>
+                            <select class="form-control nice-select sort-select mr-0">
+                                <option value="" selected="selected">Default Sorting</option>
+                                <option value="">Sort
+                                    By:Name (A - Z)</option>
+                                <option value="">Sort
+                                    By:Name (Z - A)</option>
+                                <option value="">Sort
+                                    By:Price (Low &gt; High)</option>
+                                <option value="">Sort
+                                    By:Price (High &gt; Low)</option>
+                                <option value="">Sort
+                                    By:Model (A - Z)</option>
+                                <option value="">Sort
+                                    By:Model (Z - A)</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="shop-product-wrap with-pagination row space-db--30 shop-border grid-four" style="display:flex">
-                @foreach($products as $product)
+                @foreach($mostViewedProducts as $product)
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-grid-content">
@@ -97,7 +113,7 @@
                                     <!-- Main Image -->
                                     <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
                                     <div class="hover-contents">
-
+                                        <!-- Hover Image (linked to product details page) -->
 
                                         <div class="hover-btns">
                                             <!-- Your other hover buttons go here -->
@@ -121,6 +137,7 @@
 
                             </div>
                         </div>
+
                     </div>
                 </div>
 

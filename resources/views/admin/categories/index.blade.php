@@ -39,6 +39,13 @@
                             <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">
                                 <i class="fas fa-edit"></i>
                             </a>
+                                            @if ($errors->any())
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li class="text-danger"> {{$error}}</li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
                             <form onsubmit="return confirm('Are you sure?')" method="post" action="{{route('admin.categories.destroy', $category->id)}}">
                                 @method('delete')
                                 @csrf

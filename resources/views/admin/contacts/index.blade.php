@@ -25,6 +25,13 @@
                  <td>{{$contact->address}}</td>
                 <td class="d-flex  align-items-center">
                     <a href="{{route('admin.contacts.edit', ['contact' => $contact->id])}}" class="btn btn-success mr-2"><i class="fas fa-edit"></i></a>
+                @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="text-danger"> {{$error}}</li>
+                    @endforeach
+                </ul>
+                @endif
                     <form onsubmit="return confirm('are you sure?')" method="post" action="{{route('admin.contacts.destroy',['contact' => $contact->id] )}}">
                         @csrf
                         @method('DELETE')

@@ -29,9 +29,23 @@ class ProductDetailsController extends Controller
         }
 
 
+
        $products = Products::orderBy('created_at', 'desc')->take(6)->get();
 
        $categories = Category::all();
         return view('front.productDetails', compact('product', 'category', 'images', 'products', 'categories'));
     }
+
+
+    public function show()
+    {
+        $product = Products::all();
+
+        
+
+        $mostViewedProducts = Products::orderBy('views', 'desc')->take(5)->get();
+
+        return view('front.mostViewedProducts', compact('product', 'mostViewedProducts'));
+    }
+
 }

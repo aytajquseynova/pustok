@@ -60,7 +60,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                             
+
                         </form>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
     <section class="section-margin">
         <h2 class="sr-only">Brand Slider</h2>
         <div class="container">
-            <!-- Your brand slider code remains the same -->
+            
         </div>
     </section>
 

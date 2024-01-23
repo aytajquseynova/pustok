@@ -232,20 +232,11 @@
                         @foreach($categories as $product)
                         <div class="col-lg-7 mt--30 mt-lg--30">
                             <div class="product-details-info pl-lg--30">
-                                <p class="tag-block">
-                                    Tags: <a href="#">Movado</a>, <a href="#">Omega</a>
-                                </p>
                                 <h3 class="product-title">
                                     {{ $product->title }}
                                 </h3>
                                 <ul class="list-unstyled">
-                                    <li>Ex Tax: <span class="list-value"> £{{ $product->ex_tax }}</span></li>
-                                    <li>
-                                        Brands:
-                                        <a href="#" class="list-value font-weight-bold">{{ $product->brands }}</a>
-                                    </li>
-                                    <li>Product Code: <span class="list-value"> {{ $product->product_code }}</span></li>
-                                    <li>Reward Points: <span class="list-value"> {{ $product->reward_points }}</span></li>
+                                  
                                     <li>
                                         Availability: <span class="list-value">
                                             @if ($product->availability == 0)
