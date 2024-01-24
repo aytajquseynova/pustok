@@ -57,17 +57,11 @@
 
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30">
-                    <!-- ... (other code) ... -->
                     <h3 class="product-title">
                         {{ $product->title }}
                     </h3>
 
                     <ul class="list-unstyled">
-                        <li>
-                            Category : <span class="list-value">
-                              {{$category->title}}
-                            </span>
-                        </li>
                         <li>
                             Availability: <span class="list-value">
                                 @if ($product->availability == 0)
@@ -236,7 +230,7 @@
                                     {{ $product->title }}
                                 </h3>
                                 <ul class="list-unstyled">
-                                  
+
                                     <li>
                                         Availability: <span class="list-value">
                                             @if ($product->availability == 0)

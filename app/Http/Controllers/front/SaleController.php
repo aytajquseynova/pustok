@@ -9,19 +9,33 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
+    public function index(Request $request)
+    {
+        $sortOption = $request->input('sort', 'default');
 
-    public function index()
-{
-    // Tüm ürünleri al
+        $selectedProductsQuery = Products::where('percent', '<', 40);
 
-     $selectedProducts = Products::where('percent', '<', 40)->paginate(12);
+        switch ($sortOption) {
+            case 'a-z':
+                $selectedProductsQuery->orderBy('title', 'asc');
+                break;
+            case 'z-a':
+                $selectedProductsQuery->orderBy('title', 'desc');
+                break;
+            case 'low-high':
+                $selectedProductsQuery->orderByRaw('(price - (price * percent / 100)) ASC');
+                break;
+            case 'high-low':
+                $selectedProductsQuery->orderByRaw('(price - (price * percent / 100)) DESC');
+                break;
+            default:
 
-    // Kategorileri al
-    $categories = Category::all();
+                break;
+        }
 
-    // İlgili görünüme verileri gönder
-    return view('front.sale-four', compact('selectedProducts', 'categories'));
-}
+        $selectedProducts = $selectedProductsQuery->paginate(12);
+        $categories = Category::all();
 
-
+        return view('front.sale-four', compact('selectedProducts', 'categories'));
+    }
 }
