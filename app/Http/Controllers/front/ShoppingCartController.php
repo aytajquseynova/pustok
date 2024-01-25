@@ -23,15 +23,16 @@ class ShoppingCartController extends Controller
             Cart::add([
                 'id' => $product->id,
                 'name' => $product->title,
-                'author' => $product->author,
-                'percent' => $product->percent,
-                'user_id' => $product -> user_id,
+
                 'qty' => 1,
                 'price' => $discountedPrice,
                 'weight' => 50,
                 'options' => [
                     'size' => 'large',
                     'image' => $product->main_image,
+                    'author' => $product->author,
+                    'percent' => $product->percent,
+                    'user_id' => $product -> user_id,
                 ]
             ]);
         }

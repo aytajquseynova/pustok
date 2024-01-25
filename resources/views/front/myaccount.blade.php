@@ -42,9 +42,7 @@
                                 <div class="myaccount-content">
                                     <h3>Dashboard</h3>
                                     <div class="welcome mb-20">
-                                        <p>Hello, <strong>{{ auth()->user()->name }}</strong> (If Not <strong>{{ auth()->user()->name }}
-                                                !</strong><a href="{{route('auth.logout')}}" class="logout">
-                                                Logout</a>)</p>
+                                            
                                     </div>
                                     <p class="mb-0">From your account dashboard. you can easily check &amp; view
                                         your
@@ -112,11 +110,14 @@
                             <div class="tab-pane fade" id="address-edit" role="tabpanel">
                                 <div class="myaccount-content">
                                     <h3>Billing Address</h3>
+                                    @foreach ($checkouts as $checkout)
                                     <address>
-                                        <p><strong>Alex Tuntuni</strong></p>
-                                        <p>1355 Market St, Suite 900 <br>
-                                            San Francisco, CA 94103</p>
+                                        <p><strong>{{$checkout->town_city}}</strong></p>
+                                        <p>{{$checkout->state}} <br>
+                                            {{$checkout->zip_code}}</p>
                                     </address>
+                                    @endforeach
+
                                     <a href="#" class="btn btn--primary"><i class="fa fa-edit"></i>Edit
                                         Address</a>
                                 </div>
@@ -126,32 +127,45 @@
                             <div class="tab-pane fade" id="account-info" role="tabpanel">
                                 <div class="myaccount-content">
                                     <h3>Account Details</h3>
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    @if ($errors->any())
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li class="text-danger"> {{$error}}</li>
+                                        @endforeach
+                                    </ul>
+                                    @endif
                                     <div class="account-details-form">
-                                        <form action="#">
+                                        <form action="#" method="POST">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="first-name" placeholder="First Name" type="text">
+                                                    <input id="first-name" name="name" placeholder="First Name" type="text">
                                                 </div>
                                                 <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="last-name" placeholder="Last Name" type="text">
+                                                    <input id="last-name" name="surname" placeholder="Last Name" type="text">
                                                 </div>
                                                 <div class="col-12  mb--30">
-                                                    <input id="display-name" placeholder="Display Name" type="text">
+                                                    <input id="display-name" name ="fullname" placeholder="Display Name" type="text">
                                                 </div>
                                                 <div class="col-12  mb--30">
-                                                    <input id="email" placeholder="Email Address" type="email">
+                                                    <input id="email" name="email" placeholder="Email Address" type="email">
                                                 </div>
                                                 <div class="col-12  mb--30">
                                                     <h4>Password change</h4>
                                                 </div>
                                                 <div class="col-12  mb--30">
-                                                    <input id="current-pwd" placeholder="Current Password" type="password">
+                                                    <input id="current-pwd" name="password" placeholder="Current Password" type="password">
                                                 </div>
                                                 <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="new-pwd" placeholder="New Password" type="password">
+                                                    <input id="new-pwd" name="new_password" placeholder="New Password" type="password">
                                                 </div>
                                                 <div class="col-lg-6 col-12  mb--30">
-                                                    <input id="confirm-pwd" placeholder="Confirm Password" type="password">
+                                                    <input id="confirm-pwd" name="confirm_password" placeholder="Confirm Password" type="password">
                                                 </div>
                                                 <div class="col-12">
                                                     <button class="btn btn--primary">Save Changes</button>

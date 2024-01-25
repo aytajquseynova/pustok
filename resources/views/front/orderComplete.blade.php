@@ -26,23 +26,26 @@
                 </div>
 
                 <ul class="order-details-list">
-                    <li>Order Number: <strong>{{ uniqid() }}</strong></li>
-                    <li>Date: <strong>{{ now()->format('M d, Y') }}</strong></li>
-                    <li>Total: <strong>£ {{ Cart::subtotal() }}</strong></li>
-                    @foreach($order_items as $order_item)
-                            <li>Name: {{ $order_item->name }}</li>
-                            <li>Surname: {{ $order_item->surname }}</li>
-                            <li>Company Name: {{ $order_item->company_name }}</li>
-                            <li>Email: {{ $order_item->email }}</li>
-                            <li>Phone: {{ $order_item->phone }}</li>
-                            <li>Address: {{ $order_item->address }}</li>
-                            <li>Town/City: {{ $order_item->town_city }}</li>
-                            <li>State: {{ $order_item->state }}</li>
-                            <li>Zip Code: {{ $order_item->zip_code }}</li>
-                            <li>Order Notes: {{ $order_item->order_notes }}</li>
-                            <li>Subtotal: £ {{ Cart::subtotal() }}</li>
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+
+                    <li>Total: <strong>£ {{ $order->total_amount}}</strong></li>
+                            <li>Name: {{ $order->name }}</li>
+                            <li>Surname: {{ $order->lsurname }}</li>
+                            <li>Company Name: {{ $order->company_name }}</li>
+                            <li>Email: {{ $order->email }}</li>
+                            <li>Phone: {{ $order->phone }}</li>
+                            <li>Address: {{ $order->address }}</li>
+                            <li>Town/City: {{ $order->town_city }}</li>
+                            <li>State: {{ $order->state }}</li>
+                            <li>Zip Code: {{ $order->zip_code }}</li>
+                            <li>Order Notes: {{ $order->order_notes }}</li>
+                            <li>Subtotal: £ {{ $order->total_amount}}</li>
                             <hr>
-                    @endforeach
 
                 </ul>
                 <h3 class="order-table-title">Order Details</h3>
@@ -55,7 +58,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                              @foreach (Cart::content() as $cart)
+
+                              @foreach ($cartItems as $cart)
+
                             <tr>
                                 <td><a href="single-product.html">{{$cart->name}}</a> <strong>× {{$cart->qty}}</strong></td>
                                 <td><span>{{$cart->price}}</span></td>
@@ -65,8 +70,8 @@
                         <tfoot>
                             <tr>
                                 <th>Subtotal:</th>
-                                <td><span>£ {{ Cart::subtotal() }}</span></td>
-                                {{Cart::destroy()}};
+                                <td><span>£ {{ $order->total_amount }}</span></td>
+
                             </tr>
                         </tfoot>
                     </table>

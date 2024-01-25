@@ -11,6 +11,8 @@ class MyAccountController extends Controller
     public function index()
     {
 
-        return view('front.myaccount');
+        $checkouts = Checkout::distinct('user_id')->get();
+        return view('front.myaccount', compact('checkouts'));
     }
+    
 }

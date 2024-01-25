@@ -131,7 +131,9 @@
                                                                 <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-
+                                                                <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -191,6 +193,9 @@
                                                                 </a>
                                                                 <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
+                                                                </a>
+                                                                 <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
                                                                 </a>
 
                                                             </div>
@@ -288,6 +293,9 @@
                                                                <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
+                                                                 <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
 
                                                             </div>
                                                         </div>
@@ -342,6 +350,9 @@
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
+                                                                 <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -396,6 +407,9 @@
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
+                                                                 <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -486,6 +500,9 @@
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
 
+                                                                 <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -537,6 +554,9 @@
                                                             <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                 <i class="fas fa-heart"></i>
                                                             </a>
+                                                             <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
 
                                                             </div>
                                                         </div>
@@ -589,6 +609,9 @@
                                                            <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
                                                                 <i class="fas fa-heart"></i>
                                                             </a>
+                                                             <a href="{{route('client.productDetails', $product->id)}}" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -686,6 +709,39 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-7 mt--30 mt-lg--30">
+										<div class="product-details-info pl-lg--30 ">
+
+                                            	<h3 class="product-title">{{$product->title}}</h3>
+											<ul class="list-unstyled">
+
+												<li>Availability: <span class="list-value"> {{$product->avaliability}}</span></li>
+											</ul>
+											<div class="price-block">
+												<span class="price-new">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
+												<del class="price-old">£{{$product->price}}</del>
+											</div>
+											<article class="product-details-article">
+												<h4 class="sr-only">{{Cart::subtotal()}}</h4>
+												<p>{{$product->description}}</p>
+											</article>
+											<div class="add-to-cart-row">
+												<div class="count-input-block">
+													<span class="widget-label">{{Cart::count()}}</span>
+												</div>
+												<div class="add-cart-btn">
+													<a href="{{ route('add', ['id' => $product->id]) }}" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
+												</div>
+											</div>
+											<div class="compare-wishlist-row">
+												<a href="route('wishlist-add', ['id' => $product->id])" class="add-link"><i class="fas fa-heart"></i>Add to Wish
+													List</a>
+												
+											</div>
+
+
+										</div>
+									</div>
                 </div>
             </div>
         </div>

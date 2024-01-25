@@ -27,10 +27,10 @@
                     @endforeach
                 </ul>
                 @endif
-                <form action="{{route('client.checkout.post')}}" class="checkout-form" method="POST">
+
+                <form action="{{route('client.orderComplete')}}" class="checkout-form" method="POST">
+                    @csrf
                     <div class="row row-40">
-                        <div class="col-12">
-                        </div>
                         <div class="col-lg-7 mb--20">
 									<!-- Billing Address -->
 									<div id="billing-form" class="mb-40">
@@ -42,7 +42,7 @@
 											</div>
 											<div class="col-md-6 col-12 mb--20">
 												<label>Last Name*</label>
-												<input type="text" name="surname" placeholder="Last Name">
+												<input type="text" name="lsurname" placeholder="Last Name">
 											</div>
 											<div class="col-12 mb--20">
 												<label>Company Name</label>

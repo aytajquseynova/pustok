@@ -24,14 +24,15 @@ class CheckoutRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'surname'=> 'required|string',
+            'lsurname'=> 'required|string',
             'email'=> ['required','email'],
             'phone'=> 'required',
             'address'=>'required',
             'town_city'=>'required',
             'state' =>'required',
             'zip_code'=>'required',
-            'order_notes'=>'string'
+            'order_notes'=>'string',
+
         ];
     }
 }
