@@ -1,5 +1,5 @@
 @extends('front.layouts.master')
-@section('page_title', "shopList")
+@section('page_title', "new arrivals")
 @section('content')
 
 <div class="site-wrapper" id="top">
@@ -35,26 +35,16 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
-                            <span>Sort By:</span>
-                            <select class="form-control nice-select sort-select mr-0">
-                                <option value="" selected="selected">Default Sorting</option>
-                                <option value="">Sort
-                                    By:Name (A - Z)</option>
-                                <option value="">Sort
-                                    By:Name (Z - A)</option>
-                                <option value="">Sort
-                                    By:Price (Low &gt; High)</option>
-                                <option value="">Sort
-                                    By:Price (High &gt; Low)</option>
-                                <option value="">Sort
-                                    By:Rating (Highest)</option>
-                                <option value="">Sort
-                                    By:Rating (Lowest)</option>
-                                <option value="">Sort
-                                    By:Model (A - Z)</option>
-                                <option value="">Sort
-                                    By:Model (Z - A)</option>
-                            </select>
+                        <form method="GET" action="{{route('client.sale-four')}}">
+                        <span style="margin-left: 17px;">Sort By:</span>
+                        <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
+                            <option value="" selected="selected">Default Sorting</option>
+                            <option value="a-z">Sort By: Name (A - Z)</option>
+                            <option value="z-a">Sort By: Name (Z - A)</option>
+                            <option value="low-high">Sort By: Price (Low > High)</option>
+                            <option value="high-low">Sort By: Price (High > Low)</option>
+                        </select>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -77,28 +67,22 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
-                            <span>Sort By:</span>
-                            <select class="form-control nice-select sort-select mr-0">
-                                <option value="" selected="selected">Default Sorting</option>
-                                <option value="">Sort
-                                    By:Name (A - Z)</option>
-                                <option value="">Sort
-                                    By:Name (Z - A)</option>
-                                <option value="">Sort
-                                    By:Price (Low &gt; High)</option>
-                                <option value="">Sort
-                                    By:Price (High &gt; Low)</option>
-                                <option value="">Sort
-                                    By:Model (A - Z)</option>
-                                <option value="">Sort
-                                    By:Model (Z - A)</option>
-                            </select>
+                            <form method="GET" action="{{route('client.sale-four')}}">
+                        <span style="margin-left: 17px;">Sort By:</span>
+                        <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
+                            <option value="" selected="selected">Default Sorting</option>
+                            <option value="a-z">Sort By: Name (A - Z)</option>
+                            <option value="z-a">Sort By: Name (Z - A)</option>
+                            <option value="low-high">Sort By: Price (Low > High)</option>
+                            <option value="high-low">Sort By: Price (High > Low)</option>
+                        </select>
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="shop-product-wrap with-pagination row space-db--30 shop-border grid-four" style="display:flex">
-                @foreach($mostViewedProducts as $product)
+                @foreach($products as $product)
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-grid-content">

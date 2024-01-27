@@ -21,7 +21,9 @@ use App\Http\Controllers\front\OrderCompleteController;
 use App\Http\Controllers\front\WishListController;
 use App\Http\Controllers\admin\LanguageLineController;
 use App\Http\Controllers\front\AccountController;
+use App\Http\Controllers\front\BestSellerController;
 use App\Http\Controllers\front\CurrencyController;
+use App\Http\Controllers\front\NewArrivals;
 use App\Http\Controllers\front\SaleController as FrontSaleController;
 use App\Http\Controllers\front\SearchController;
 use App\Http\Controllers\front\ShoppingCartController;
@@ -69,13 +71,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::post('/checkout/request', [CheckOutController::class, 'request'])->name('checkout.post');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/myaccount', [MyAccountController::class, 'index'])->name('myaccount');
-    // Route::post('/myaccount/update', [MyAccountController::class, 'update'])->name('updateAccount');
     Route::get('/productDetails/{id}', [ProductDetailsController::class, 'index'])->name('productDetails');
     Route::post('/orderComplete', [OrderCompleteController::class, 'placeOrder'])->name('orderComplete');
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
-    Route::get('/mostViewedProducts', [ProductDetailsController::class, 'show'])->name('show');
+    Route::get('/bestseller', [BestSellerController::class, 'index'])->name('bestseller');
     Route::get('/sale-four', [FrontSaleController::class, 'index'])->name('sale-four');
     Route::get('/search', [SearchController::class, 'search'])->name('search');
+    Route::get('/newArrivals', [NewArrivals::class, 'index'])->name('newArrivals');
 
 
 });

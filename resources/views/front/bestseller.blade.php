@@ -1,5 +1,5 @@
 @extends('front.layouts.master')
-@section('page_title', "sale")
+@section('page_title', "bestseller")
 @section('content')
 
 <div class="site-wrapper" id="top">
@@ -82,29 +82,29 @@
                 </div>
             </div>
             <div class="shop-product-wrap with-pagination row space-db--30 shop-border grid-four" style="display:flex">
-                @foreach($selectedProducts as $product)
+                @foreach($order_products as $order_product)
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-grid-content">
                             <div class="product-header">
                                 <a href="" class="author">
-                                    {{$product->author}}
+                                    {{$order_product->product->author}}
                                 </a>
-                                <h3><a href="{{route('client.productDetails', $product->id)}}">{{$product->title}}</a></h3>
+                                <h3><a href="{{route('client.productDetails', $order_product->product->id)}}">{{$order_product->product->title}}</a></h3>
                             </div>
                             <div class="product-card--body">
                                 <div class="card-image">
                                     <!-- Main Image -->
-                                    <img src="{{ asset($product->main_image) }}" alt="{{ $product->title }}">
+                                    <img src="{{ asset($order_product->product->main_image) }}" alt="{{ $order_product->product->title }}">
                                     <div class="hover-contents">
                                         <!-- Hover Image (linked to product details page) -->
 
                                         <div class="hover-btns">
                                             <!-- Your other hover buttons go here -->
-                                            <a href="{{ route('add', ['id' => $product->id]) }}" class="single-btn">
+                                            <a href="{{ route('add', ['id' => $order_product->product->id]) }}" class="single-btn">
                                                 <i class="fas fa-shopping-basket"></i>
                                             </a>
-                                            <a href="{{ route('wishlist-add', ['id' => $product->id]) }}" class="single-btn">
+                                            <a href="{{ route('wishlist-add', ['id' => $order_product->product->id]) }}" class="single-btn">
                                                 <i class="fas fa-heart"></i>
                                             </a>
 
@@ -113,11 +113,10 @@
                                 </div>
 
                                 <div class="price-block">
-                                    <span class="price">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
-                                    <del class="price-old">£{{ (float)$product->price }}</del>
-                                    <span class="price-discount">{{ (float)$product->percent }}%</span>
+                                    <span class="price">£{{ (float)$order_product->product->price - ((float)$order_product->product->price * (float)$order_product->product->percent / 100) }}</span>
+                                    <del class="price-old">£{{ (float)$order_product->product->price }}</del>
+                                    <span class="price-discount">{{ (float)$order_product->product->percent }}%</span>
                                 </div>
-
 
                             </div>
                         </div>

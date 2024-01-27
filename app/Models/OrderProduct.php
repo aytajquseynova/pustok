@@ -20,5 +20,9 @@ class OrderProduct extends Model
         return $this->belongsTo(Orders::class, 'order_id');
     }
 
+    public function address()
+    {
+        return $this->belongsTo(Orders::class, 'address');
+    }
 
 }

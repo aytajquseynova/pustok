@@ -15,10 +15,10 @@ class MyAccountController extends Controller
 {
     public function index(Request $request)
     {
-       $order_products = OrderProduct::where('user_id', auth()->user()->id)->with('order', 'product')->get();
+        $order_products = OrderProduct::where('user_id', auth()->user()->id)->with('order', 'product')->get();
         $products = Products::all();
-
-        return view('front.myaccount', compact('order_products', 'products'));
+        $orders = Orders::all();
+        return view('front.myaccount', compact('order_products', 'products', 'orders'));
 
     }
 
