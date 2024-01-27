@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,11 @@ class HomeController extends Controller
      */
     public function index(){
         $products = Products::all();
-        return view('front.home', compact('products'));
+        $categories = Category::with('category')->where('status',1)->get();
+        return view('front.home', compact('products' , 'categories'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\LanguageLineController;
 use App\Http\Controllers\front\AccountController;
 use App\Http\Controllers\front\CurrencyController;
 use App\Http\Controllers\front\SaleController as FrontSaleController;
+use App\Http\Controllers\front\SearchController;
 use App\Http\Controllers\front\ShoppingCartController;
 use App\Http\Controllers\front\UserController;
 use App\Http\Controllers\MailController;
@@ -62,7 +63,7 @@ Route::group(['prefix' => '', 'as' => 'auth.'], function () {
 
 Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/shopList', [ShopListController::class, 'index'])->name('shopList');
+    Route::get('/shopList/{slug}', [ShopListController::class, 'index'])->name('shopList');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/checkout', [CheckOutController::class, 'index'])->name('checkout');
     Route::post('/checkout/request', [CheckOutController::class, 'request'])->name('checkout.post');
@@ -74,6 +75,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/wishList', [WishListController::class, 'index'])->name('wishList');
     Route::get('/mostViewedProducts', [ProductDetailsController::class, 'show'])->name('show');
     Route::get('/sale-four', [FrontSaleController::class, 'index'])->name('sale-four');
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+
 });
 
 

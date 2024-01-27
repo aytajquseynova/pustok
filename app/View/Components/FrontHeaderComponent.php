@@ -23,9 +23,11 @@ class FrontHeaderComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        $categories = Category::with('category')->where('category_id',0)->where('status',1)->get();
+        $categories = Category::with('category')->where('status',1)->get();
         // dd($categories);
         $contacts = Contact::all();
         return view('components.front-header-component',compact('categories', 'contacts'));
+
     }
+    
 }

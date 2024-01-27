@@ -12,15 +12,12 @@ use App\Models\Orders;
 class OrderCompleteController extends Controller
 {
 
-    // public function index(){
-
-    // }
     public function placeOrder(Request $request)
     {
 
         $data = $request->all();
         $cartItems = Cart::content();
-        $total = Cart::total();
+        $total = Cart::subtotal();
         $data['user_id']=auth()->user()->id;
         $data['total_amount']=$total;
 
@@ -30,6 +27,7 @@ class OrderCompleteController extends Controller
         foreach ($cartItems as $cartItem) {
             $dataItem = [
                 'order_id' => $order->id ,
+                'user_id' => auth()->user()->id,
                 'product_id' => $cartItem->id,
                 'qty' => $cartItem->qty,
                 'price' => $cartItem->price,
@@ -37,10 +35,6 @@ class OrderCompleteController extends Controller
             ];
             $createdOrderItem = OrderProduct::create($dataItem);
         }
-        // if (!$request->has('accept_terms2')) {
-        //     return redirect()->back()->with('error', 'Please accept the terms and conditions.');
-        // }
-
         Cart::destroy();
 
         return view('front.orderComplete', compact('order', 'cartItems'))->with('success', 'Order placed successfully!');

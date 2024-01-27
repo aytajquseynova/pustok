@@ -36,7 +36,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
 
-                        <form method="GET" action="{{route('client.shopList')}}">
+                        <form method="GET" action="{{route('client.shopList', 'slug')}}">
                         <span style="margin-left: 17px;">Sort By:</span>
                         <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
                             <option value="" selected="selected">Default Sorting</option>
@@ -69,7 +69,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
                         <div class="sorting-selection">
-                        <form method="GET" action="{{route('client.shopList')}}">
+                        <form method="GET" action="{{route('client.shopList', 'slug')}}">
                         <span style="margin-left: 17px;">Sort By:</span>
                         <select class="form-control nice-select sort-select mr-0" name="sort" onchange="this.form.submit()">
                             <option value="" selected="selected">Default Sorting</option>

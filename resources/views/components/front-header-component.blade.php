@@ -12,12 +12,14 @@
                                 <img src="{{asset('assets/front/image/logo.png')}}" alt="">
                             </a>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="header-search-block">
-                                <input type="text" placeholder="Search entire store here">
-                                <button>Search</button>
-                            </div>
+                      <div class="col-lg-5">
+                        <div class="header-search-block">
+                            <form action="{{ route('client.search') }}" method="GET">
+                                <input type="text" name="query" placeholder="Axtarış" value="{{ isset($query) ? $query : '' }}">
+                                <button onclick="searchProducts()">Search</button>
+                            </form>
                         </div>
+                    </div>
                         <div iv class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
@@ -27,7 +29,7 @@
                                         <span>or</span>
                                         <a href="{{ route('auth.registration') }}" class="font-weight-bold">Register</a> <br>
                                         @else <!-- If the user is logged in -->
-                                        {{ auth()->user()->name }}<br>
+                                        <a href="{{route('client.myaccount')}}">{{ auth()->user()->name }} </a><br>
                                         <span>or</span>
                                         <a onclick="return confirm('Are you sure?')" href="{{ route('auth.logout') }}" class="font-weight-bold">Log out</a>
                                         @endguest
@@ -100,16 +102,19 @@
                                     <a href="javascript:void(0)" class="category-trigger"><i class="fa fa-bars"></i>Browse
                                         categories</a>
                                     <ul class="category-menu">
-                                        @foreach($categories as $category)
-                                        <li class="cat-item has-children">
+                                      @foreach($categories as $category)
+                                          <li class="cat-item has-children">
+                                            @if($category->category_id === 0)
                                             <a href="#">{{$category->title}}</a>
+                                            @endif
+                                            @if($category->category->count() > 0)
                                             <ul class="sub-menu">
-                                                @foreach($category->category as $child)
-                                                <li><a href="#">{{ $child->title }}</a></li>
-                                                @endforeach
-                                            </ul>
+                                            @foreach($category->category as $child)
+                                                <li><a href="{{route('client.shopList', $child->slug)}}">{{$child->title}}</a></li>
 
-                                        </li>
+                                             @endforeach
+                                            </ul>
+                                            @endif
                                         @endforeach
                                         <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
                                         <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
@@ -138,7 +143,7 @@
                                     </li>
                                     <!-- Shop -->
                                     <li class="menu-item has-children mega-menu">
-                                        <a href="{{route('client.shopList')}}">{{__('routes.shop')}}</a>
+                                        <a href="{{route('client.shopList', 'slug')}}">{{__('routes.shop')}}</a>
 
                                     </li>
 
@@ -172,17 +177,20 @@
                                     <a href="javascript:void(0)" class="category-trigger"><i class="fa fa-bars"></i>Browse
                                         categories</a>
                                     <ul class="category-menu">
-                                        @foreach($categories as $category)
-                                        <li class="cat-item has-children">
+                        @foreach($categories as $category)
+                                          <li class="cat-item has-children">
+                                            @if($category->category_id === 0)
                                             <a href="#">{{$category->title}}</a>
+                                            @endif
+                                            @if($category->category->count() > 0)
                                             <ul class="sub-menu">
-                                                @foreach($category->category as $child)
-                                                <li><a href="#">{{ $child->title }}</a></li>
-                                                @endforeach
-                                            </ul>
+                                            @foreach($category->category as $child)
+                                                <li><a href="{{route('client.shopList', $child->slug)}}">{{$child->title}}</a></li>
 
-                                        </li>
-                                        @endforeach
+                        @endforeach
+                                            </ul>
+                                            @endif
+                                            @endforeach
 
                                 </div>
                             </nav>
@@ -210,10 +218,7 @@
                 <div class="off-canvas-inner">
                     <!-- search box start -->
                     <div class="search-box offcanvas">
-                        <form>
-                            <input type="text" placeholder="Search Here">
-                            <button class="search-btn"><i class="ion-ios-search-strong"></i></button>
-                        </form>
+
                     </div>
                     <!-- search box end -->
                     <!-- mobile menu start -->
@@ -229,7 +234,7 @@
                                     <a href="./blog-list-left-sidebar.html">Blog</a>
                                 </li> -->
                                 <li class="menu-item-has-children">
-                                    <a href=" {{route('client.shopList')}}">{{__('routes.shop')}}</a>
+                                    <a href=" {{route('client.shopList', 'slug')}}">{{__('routes.shop')}}</a>
                                 </li>
 
                                 <li><a href="{{route('client.contact')}}">{{__('routes.contact')}}</a></li>
@@ -265,7 +270,7 @@
                                     <li><a href="">My Account</a></li>
                                     <li><a href="">Order History</a></li>
                                     <li><a href="">Transactions</a></li>
-                                    <li><a href="">Downloads</a></li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -305,7 +310,7 @@
                                 </li>
                                 <!-- Shop -->
                                 <li class="menu-item has-children mega-menu">
-                                    <a href="{{route('client.shopList')}}">{{__('routes.shop')}} </a>
+                                    <a href="{{route('client.shopList', 'slug')}}">{{__('routes.shop')}} </a>
 
                                 </li>
 

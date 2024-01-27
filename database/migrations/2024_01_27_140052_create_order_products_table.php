@@ -13,17 +13,19 @@ class CreateOrderProductsTable extends Migration
     {
         Schema::create('order_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('qty');
             $table->decimal('price', 10, 2)->default(0.00);
-            // Diğer sipariş ürün bilgileri ekleyebilirsiniz
+
 
             $table->timestamps();
 
-            // Foreign Key Constraints
+
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('user_id')->default(1)->references('id')->on('users')->onDelete('cascade');
         });
     }
 

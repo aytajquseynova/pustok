@@ -42,12 +42,17 @@
                                 <div class="myaccount-content">
                                     <h3>Dashboard</h3>
                                     <div class="welcome mb-20">
-                                            
-                                    </div>
-                                    <p class="mb-0">From your account dashboard. you can easily check &amp; view
+
+												<p>Hello, <strong>{{ auth()->user()->name}}</strong> (If Not <strong>{{ auth()->user()->name}}
+														!</strong><a href="{{route('auth.logout')}}" class="logout">
+														Logout</a>)</p>
+                                                   <p class="mb-0">From your account dashboard. you can easily check &amp; view
                                         your
                                         recent orders, manage your shipping and billing addresses and edit your
                                         password and account details.</p>
+											</div>
+                                    </div>
+
                                 </div>
                             </div>
                             <!-- Single Tab Content End -->
@@ -56,26 +61,32 @@
                                 <div class="myaccount-content">
                                     <h3>Orders</h3>
                                     <div class="myaccount-table table-responsive text-center">
-                                        <table class="table table-bordered">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Date</th>
-                                                    <th>Total</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (Cart::content() as $cart)
-                                                <tr>
-                                                    <td>{{$cart->name}}</td>
-                                                    <td>{{ now()->format('M d, Y') }}</td>
-                                                    <td>${{Cart::subtotal()}}</td>
-                                                    <td><a href="{{route('client.cart')}}" class="btn">View</a></td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>No</th>
+            <th>Product Name</th>
+            <th>Order Number</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($order_products as $index => $order_product)
+            <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ $order_product->product->title }}</td>
+                <td>{{ $order_product->order_id }}</td>
+                <td>{{ $order_product->created_at }}</td>
+                <td>${{ $order_product->qty * $order_product->price }}</td>
+                <td><a href="{{ route('client.cart') }}">View Cart <i class="fas fa-chevron-right"></i></a></td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -94,10 +105,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    @foreach (Cart::content() as $cart)
+                                                    {{-- @foreach (Cart::content() as $cart)
                                                     <td>{{$cart->name}}</td>
                                                     <td>{{ now()->format('M d, Y') }}</td>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </tr>
 
                                             </tbody>
@@ -110,13 +121,14 @@
                             <div class="tab-pane fade" id="address-edit" role="tabpanel">
                                 <div class="myaccount-content">
                                     <h3>Billing Address</h3>
-                                    @foreach ($checkouts as $checkout)
+                                    {{-- @foreach ($checkouts as $checkout)
                                     <address>
                                         <p><strong>{{$checkout->town_city}}</strong></p>
                                         <p>{{$checkout->state}} <br>
                                             {{$checkout->zip_code}}</p>
                                     </address>
-                                    @endforeach
+                                    @endforeach --}}
+
 
                                     <a href="#" class="btn btn--primary"><i class="fa fa-edit"></i>Edit
                                         Address</a>
