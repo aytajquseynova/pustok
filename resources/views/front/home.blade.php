@@ -66,16 +66,10 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="home-left-side text-center text-lg-left">
-
                     <div class="single-block text-center">
-                        <a href="{{ route('client.sale-four') }}" class="promo-image home-sidebar-promo promo-overlay">
-                            <img src="{{asset('assets/front/image/others/home-side-promo.jpg')}}" alt="">
-                        </a>
-                    </div>
-                    <div class="single-block text-center">
-                        <h3 class="home-sidebar-title style-2">
+                        {{-- <h3 class="home-sidebar-title style-2">
                             Special offer
-                        </h3>
+                        </h3> --}}
                         <div class="product-slider countdown-single with-countdown sb-slick-slider product-border-reset" data-slick-setting='{
                                                 "autoplay": true,
                                                 "autoplaySpeed": 8000,

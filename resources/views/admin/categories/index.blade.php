@@ -11,13 +11,7 @@
                     <th style="width: 10%">Title</th>
                     <th style="width: 10%">Slug</th>
                     <th style="width: 5%">Status</th>
-                    <th style="width: 10%">Tags</th>
-                    <th style="width: 10%">Product Title</th>
-
                     <th style="width: 5%">Availability</th>
-                    <th style="width: 5%">Price</th>
-                    <th style="width: 5%">Old Price</th>
-                    <th style="width: 15%">Description</th>
                     <th style="width: 10%">Controls</th>
                 </tr>
             </thead>
@@ -28,12 +22,7 @@
                     <td>{{$category->title}}</td>
                     <td>{{$category->slug}}</td>
                     <td>{{$category->status}}</td>
-                    <td>{{$category->tags}}</td>
-                    <td>{{$category->product_title}}</td>
                     <td>{{$category->availability}}</td>
-                    <td>{{$category->price}}</td>
-                    <td>{{$category->old_price}}</td>
-                    <td>{{$category->description}}</td>
                     <td>
                         <div class="d-flex">
                             <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">

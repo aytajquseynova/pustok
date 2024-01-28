@@ -25,6 +25,7 @@ use App\Http\Controllers\front\BestSellerController;
 use App\Http\Controllers\front\CurrencyController;
 use App\Http\Controllers\front\NewArrivals;
 use App\Http\Controllers\front\SaleController as FrontSaleController;
+use App\Http\Controllers\front\SaleHalfController;
 use App\Http\Controllers\front\SearchController;
 use App\Http\Controllers\front\ShoppingCartController;
 use App\Http\Controllers\front\UserController;

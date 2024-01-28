@@ -251,11 +251,7 @@
                     <nav class="off-canvas-nav">
                         <ul class="mobile-menu menu-block-2">
                             <li class="menu-item-has-children">
-                                <a href="#">Currency - USD $ <i class="fas fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li> <a href="{{route('client.cart')}}">USD $</a></li>
-                                    <li> <a href="{{route('client.checkout')}}">EUR €</a></li>
-                                </ul>
+        
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">Lang - Eng<i class="fas fa-angle-down"></i></a>
@@ -265,13 +261,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="#">My Account <i class="fas fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li><a href="">My Account</a></li>
-                                    <li><a href="">Order History</a></li>
-                                    <li><a href="">Transactions</a></li>
-
-                                </ul>
+                                <a href="{{route('client.myaccount')}}">My Account <i class="fas fa-angle-down"></i></a>
                             </li>
                         </ul>
                     </nav>
