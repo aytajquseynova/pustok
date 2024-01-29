@@ -26,7 +26,10 @@
                     <label for="title">Title</label>
                     <input type="text" name="title" value="{{ $product->title }}" class="form-control" placeholder="Enter title">
                 </div>
-
+                 <div class="form-group">
+                    <label for="title">Description</label>
+                    <input type="text" name="title" value="{{ $product->description }}" class="form-control" placeholder="Enter title">
+                </div>
                 <div class="form-group">
                     <label for="main_image">Main Image</label>
                     <input type="file" name="main_image" class="form-control-file">

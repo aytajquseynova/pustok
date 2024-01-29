@@ -30,7 +30,7 @@ class CategoriesController extends Controller
     {
         $categories=Category::where('category_id', 0)->get();
         return view('admin.categories.create', compact('categories'));
-        
+
     }
 
     /**
@@ -40,18 +40,8 @@ class CategoriesController extends Controller
     {
         $data=$request->all();
         $data['status']=(bool)$request->status;
-        $data['availability']=(bool)$request->availability;
-        $data['price'] = (float) $request->input('price');
-        $data['old_price'] = (float) $request->input('old_price');
         $sluggableData = [
             'title' => $data['title'],
-            'tags' => $data['tags'],
-            'product_title' => $data['product_title'],
-            'ex_tax' => $data['ex_tax'],
-            'brands' => $data['brands'],
-            'product_code' => $data['product_code'],
-            'reward_points' => $data['reward_points'],
-            'description' => $data['description'],
         ];
 
         // Call the DataService method to generate slugs for the array
@@ -91,19 +81,10 @@ class CategoriesController extends Controller
     {
         $data=$request->all();
         $data['status']= (bool)$request->status;
-        $data['availability'] = (bool)$request->availability;
-        $data['price'] = (float) str_replace(',', '.', $request->input('price'));
-        $data['old_price'] = (float) str_replace(',', '.', $request->input('old_price'));
+
 
         $sluggableData = [
             'title' => $data['title'],
-            'tags' => $data['tags'],
-            'product_title' => $data['product_title'],
-            'ex_tax' => $data['ex_tax'],
-            'brands' => $data['brands'],
-            'product_code' => $data['product_code'],
-            'reward_points' => $data['reward_points'],
-            'description' => $data['description'],
         ];
 
         // Call the DataService method to generate slugs for the array

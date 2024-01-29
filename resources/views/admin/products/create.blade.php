@@ -25,6 +25,10 @@
       <label for="title">Title</label>
       <input name="title" value="" type="text" class="form-control" id="title" placeholder="Enter title">
     </div>
+     <div class="form-group">
+                    <label for="title">Description</label>
+                    <input type="text" name="title" value="" class="form-control" placeholder="Enter title">
+    </div>
     <div class="form-group">
       <label for="price">Price</label>
       <input name="price" value="" type="number" class="form-control" id="price" placeholder="Enter price">
@@ -44,12 +48,6 @@
         <option value="0">Main Category</option>
         @foreach($categories as $category)
         <option value="{{$category->id}}">{{$category->title}}</option>
-        @endforeach
-      </select>
-      <label for="exampleSelectRounded0">Select related brands</label>
-      <select name="brand_id" class="custom-select rounded-0" id="exampleSelectRounded0">
-        @foreach($brands as $brand)
-        <option value="{{$brand->id}}">{{$brand->title}}</option>
         @endforeach
       </select>
     </div>

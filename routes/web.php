@@ -79,6 +79,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '', 'as' => 'client
     Route::get('/sale-four', [FrontSaleController::class, 'index'])->name('sale-four');
     Route::get('/search', [SearchController::class, 'search'])->name('search');
     Route::get('/newArrivals', [NewArrivals::class, 'index'])->name('newArrivals');
+    Route::get('/edit-address', 'AddressController@edit')->name('edit.address');
+    Route::post('/update-address', 'AddressController@update')->name('update.address');
+
 
 
 });
@@ -104,16 +107,16 @@ Route::group([
     Route::get('/images/main/{id}/{product_id}', [ProductsController::class, 'add_main_image'])->name('add_main_image');
     Route::resource('/contacts', AdminContactController::class);
 
-    Route::prefix('language-line')->controller(LanguageLineController::class)->group(function () {
-        Route::get('/', 'index')->name('languageLine.index');
-        Route::get('/create', 'create')->name('languageLine.create');
-        Route::post('/store', 'store')->name('languageLine.store');
-        Route::get('/{languageLine}', 'destroy')->name('languageLine.destroy');
-        Route::get('/{languageLine}/edit', 'edit')->name('languageLine.edit');
-        Route::put('/{languageLine}', 'update')->name('languageLine.update');
-        Route::delete('{languageLine}/{id}', 'destroy')->name('languageLine.destroy');
+    // Route::prefix('language-line')->controller(LanguageLineController::class)->group(function () {
+    //     Route::get('/', 'index')->name('languageLine.index');
+    //     Route::get('/create', 'create')->name('languageLine.create');
+    //     Route::post('/store', 'store')->name('languageLine.store');
+    //     Route::get('/{languageLine}', 'destroy')->name('languageLine.destroy');
+    //     Route::get('/{languageLine}/edit', 'edit')->name('languageLine.edit');
+    //     Route::put('/{languageLine}', 'update')->name('languageLine.update');
+    //     Route::delete('{languageLine}/{id}', 'destroy')->name('languageLine.destroy');
 
-    });
+    // });
 });
 
 Route::middleware(['web', 'guest'])->group(function () {

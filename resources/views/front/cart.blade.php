@@ -50,13 +50,7 @@
                                     <td class="pro-thumbnail"><a href="#"><img src="{{ asset($cart->options['image']) }}" alt="{{ $cart->name }}" class="img-fluid"></a></td>
                                         <td class="pro-title"><a href="#">{{ $cart->name }}</a></td>
                                         <td class="pro-price"><span>£{{ $cart->price }}</span></td>
-                                        <td class="pro-quantity">
-                                            <div class="pro-qty">
-                                                <div class="count-input-block">
-                                                    <input type="number" class="form-control text-center" value="{{$cart->qty}}">
-                                                </div>
-                                            </div>
-                                        </td>
+                                        <td class="pro-qty"><span>{{ $cart->qty }}</span></td>
                                         <td class="pro-subtotal"><span>£{{$cart->qty *$cart->price  }}</span></td>
                                     </tr>
                                     @endforeach

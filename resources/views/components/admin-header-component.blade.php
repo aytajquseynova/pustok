@@ -195,11 +195,6 @@
                                         <p>Products</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{route('admin.languageLine.index')}}" class="nav-link active">
-                                        <p>Language</p>
-                                    </a>
-                                </li>
 
                                  <li class="nav-item">
                                     <a href="{{route('admin.contacts.index')}}" class="nav-link active">

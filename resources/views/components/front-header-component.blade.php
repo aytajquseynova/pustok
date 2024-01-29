@@ -83,9 +83,7 @@
 
 
                                                 </div>
-                                                @foreach(LaravelLocalization::getSupportedLocales() as $localeKey => $properties)
-                                                <a style="display:block; padding:7px; background-color:#62ab00; color:white; font-weight:bold; border:1px solid white" href="{{LaravelLocalization::getLocalizedURL($localeKey)}}">{{ $localeKey}}</a>
-                                                @endforeach
+                                               
                                             </div>
                                     </div>
                         </div>
@@ -116,7 +114,7 @@
                                             </ul>
                                             @endif
                                         @endforeach
-                                        <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
+                                        {{-- <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li> --}}
                                         <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
                                                 Categories</a></li>
                                     </ul>
@@ -139,16 +137,16 @@
                             <div class="main-navigation flex-lg-right">
                                 <ul class="main-menu menu-right li-last-0">
                                     <li class="menu-item has-children">
-                                         <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
+                                         <a href="{{route('client.home')}}">Home</a>
                                     </li>
                                     <!-- Shop -->
                                     <li class="menu-item has-children mega-menu">
-                                        <a href="{{route('client.shopList', 'slug')}}">{{__('routes.shop')}}</a>
+                                        <a href="{{route('client.shopList', 'slug')}}">Shop</a>
 
                                     </li>
 
                                     <li class="menu-item">
-                                        <a href="{{route('client.contact')}}">{{__('routes.contact')}}</a>
+                                        <a href="{{route('client.contact')}}">Contact</a>
                                     </li>
                                          <li class="menu-item ">
                                  <a href="{{ route('client.wishList') }}" class="single-btn">
@@ -227,17 +225,17 @@
                         <nav class="off-canvas-nav">
                             <ul class="mobile-menu main-mobile-menu">
                                 <li class="menu-item-has-children">
-                                    <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
+                                    <a href="{{route('client.home')}}">Home</a>
 
                                 </li>
                                 <!-- <li class="menu-item-has-children">
                                     <a href="./blog-list-left-sidebar.html">Blog</a>
                                 </li> -->
                                 <li class="menu-item-has-children">
-                                    <a href=" {{route('client.shopList', 'slug')}}">{{__('routes.shop')}}</a>
+                                    <a href=" {{route('client.shopList', 'slug')}}">Shop</a>
                                 </li>
 
-                                <li><a href="{{route('client.contact')}}">{{__('routes.contact')}}</a></li>
+                                <li><a href="{{route('client.contact')}}">Contact</a></li>
                                      <li>
                                  <a href="{{ route('client.wishList') }}" class="single-btn">
                                                 <i class="fas fa-heart"></i>
@@ -251,15 +249,9 @@
                     <nav class="off-canvas-nav">
                         <ul class="mobile-menu menu-block-2">
                             <li class="menu-item-has-children">
-        
+
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Lang - Eng<i class="fas fa-angle-down"></i></a>
-                                <ul class="sub-menu">
-                                    <li>Eng</li>
-                                    <li>Ban</li>
-                                </ul>
-                            </li>
+
                             <li class="menu-item-has-children">
                                 <a href="{{route('client.myaccount')}}">My Account <i class="fas fa-angle-down"></i></a>
                             </li>
@@ -295,18 +287,18 @@
                         <div class="main-navigation flex-lg-right">
                             <ul class="main-menu menu-right ">
                                 <li class="menu-item has-children">
-                                    <a href="{{route('client.home')}}">{{__('menu.home')}}</a>
+                                    <a href="{{route('client.home')}}">Home</a>
 
                                 </li>
                                 <!-- Shop -->
                                 <li class="menu-item has-children mega-menu">
-                                    <a href="{{route('client.shopList', 'slug')}}">{{__('routes.shop')}} </a>
+                                    <a href="{{route('client.shopList', 'slug')}}">Shop </a>
 
                                 </li>
 
 
                                 <li class="menu-item">
-                                    <a href="{{route('client.contact')}}">{{__('routes.contact')}}</a>
+                                    <a href="{{route('client.contact')}}">Contact</a>
                                 </li>
                                       <li class="menu-item ">
                                  <a href="{{ route('client.wishList') }}" class="single-btn">

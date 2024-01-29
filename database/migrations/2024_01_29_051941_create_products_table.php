@@ -14,14 +14,14 @@ return new class extends Migration
         if (!Schema::hasTable('products')) {
             Schema::create('products', function (Blueprint $table) {
                 $table->id();
-                $table->unsignedBigInteger('user_id')->default(1); 
+                $table->unsignedBigInteger('user_id')->default(1);
                 $table->unsignedBigInteger('category_id');
-                $table->unsignedBigInteger('brand_id');
                 $table->string('author')->nullable();
                 $table->string('title')->nullable();
                 $table->string('price')->nullable();
                 $table->string('percent')->nullable();
                 $table->string('main_image')->nullable();
+                $table->text('description')->nullable();
                 $table->timestamps();
             });
         }

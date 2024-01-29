@@ -58,21 +58,10 @@
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30">
                     <h3 class="product-title">
-                        {{ $product->title }}
+                        Title: {{ $product->title }}
+
                     </h3>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            Availability: <span class="list-value">
-                                @if ($product->availability == 0)
-                                Out of Stock
-                                @else
-                                In Stock
-                                @endif
-                            </span>
-                        </li>
-
-                    </ul>
+                    <h4> Author: {{$product->author}}</h4>
                     <div class="price-block">
                         <span class="price-new">£{{ (float)$product->price - ((float)$product->price * (float)$product->percent / 100) }}</span>
                         <del class="price-old">£ {{$product->price}}</del>
@@ -80,15 +69,17 @@
                     </div>
                     <article class="product-details-article">
                         <h4 class="sr-only">Product Summary</h4>
-                        <p>
+                        <p>Description:
                             {{$product->description}}
                         </p>
                     </article>
                         <div class="add-to-cart-row">
-                        <div class="count-input-block">
-                            <span class="widget-label"></span>
-                            <input type="number" class="form-control text-center" value="1" />
+                            @foreach (Cart::content() as $cart)
+                         <div class="count-input-block">
+                            <span class="widget-label">{{$cart->qty}}</span>
                         </div>
+                            @endforeach
+
                         <div class="add-cart-btn">
                             <a href="{{ route('add', ['id' => $product->id]) }}" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                         </div>
@@ -223,24 +214,13 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach($categories as $product)
+                        @foreach($products as $product)
                         <div class="col-lg-7 mt--30 mt-lg--30">
                             <div class="product-details-info pl-lg--30">
                                 <h3 class="product-title">
                                     {{ $product->title }}
                                 </h3>
-                                <ul class="list-unstyled">
 
-                                    <li>
-                                        Availability: <span class="list-value">
-                                            @if ($product->availability == 0)
-                                            Out of Stock
-                                            @else
-                                            In Stock
-                                            @endif
-                                        </span>
-                                    </li>
-                                </ul>
                                 <div class="price-block">
                                     <span class="price-new">£{{ $product->price }}</span>
                                     <del class="price-old">£{{ $product->old_price }}</del>

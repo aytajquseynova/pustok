@@ -19,21 +19,18 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-    // public function show($id)
-    // {
-    //     $products = Products::findOrFail($id);
-    //     return view('front.shopList', compact('products'));
-    // }
+
 
     public function create()
     {
         $categories = Category::all();
-        $brands = Brand::all();
 
-        return view('admin.products.create', compact('categories', 'brands'));
+
+        return view('admin.products.create', compact('categories'));
     }
     public function store(Request $request)
     {
+        
         $created = Products::create($request->all());
         $extension = $request->main_image->getClientOriginalExtension();
         $randomName = Str::random(10);

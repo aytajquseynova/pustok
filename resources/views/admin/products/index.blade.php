@@ -8,13 +8,15 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-            
+
           <th>Author</th>
           <th>Title</th>
+          <th>Description</th>
           <th style="width: 40px">Image</th>
           <th>Price</th>
           <th>Percent</th>
           <th>Actions</th>
+
         </tr>
       </thead>
       <tbody>
@@ -22,6 +24,8 @@
         <tr>
           <td>{{ $product->author }}</td>
           <td>{{ $product->title }}</td>
+          <td>{{$product->description}}</td>
+
           <td>
             <a target="_blank" href="{{ asset($product->main_image) }}">
               <img style="width: 150px; object-fit: cover;" src="{{ asset($product->main_image) }}" alt="">
@@ -29,6 +33,7 @@
           </td>
           <td>{{ $product->price }}</td>
           <td>{{ $product->percent }}</td>
+
           <td style="width:200px">
             <a class="btn btn-success mb-1" href="{{ route('admin.product_images', $product->id) }}">Images</a>
             <a class="btn btn-primary mb-1" href="{{ route('admin.products_add_image', $product->id) }}">Add Img</a>

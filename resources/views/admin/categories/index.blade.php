@@ -11,7 +11,6 @@
                     <th style="width: 10%">Title</th>
                     <th style="width: 10%">Slug</th>
                     <th style="width: 5%">Status</th>
-                    <th style="width: 5%">Availability</th>
                     <th style="width: 10%">Controls</th>
                 </tr>
             </thead>
@@ -22,7 +21,6 @@
                     <td>{{$category->title}}</td>
                     <td>{{$category->slug}}</td>
                     <td>{{$category->status}}</td>
-                    <td>{{$category->availability}}</td>
                     <td>
                         <div class="d-flex">
                             <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-success mr-2">

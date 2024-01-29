@@ -43,10 +43,7 @@
                     <input name="status" type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Status</label>
                 </div>
-                <div class="form-check">
-                    <input name="availability" type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Availability</label>
-                </div>
+            
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
