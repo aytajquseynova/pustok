@@ -92,8 +92,7 @@
                                     <span class="author">
                                         {{$product->author}}
                                     </span>
-                                    <h3><a href="{{route('client.productDetails', $product->id)}}">Revolutionize Your BOOK With These
-                                            Easy-peasy Tips</a></h3>
+                                    <h3><a href="{{route('client.productDetails', $product->id)}}">{{$product->title}}</a></h3>
                                 </div>
                                 <div class="product-card--body">
                                     <div class="card-image">

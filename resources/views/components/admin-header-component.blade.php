@@ -18,10 +18,6 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeKey => $properties)
-                <a style="display:block; padding:7px; background-color:#5D87FF; color:white; font-weight:bold" href="{{LaravelLocalization::getLocalizedURL($localeKey)}}">{{ $localeKey}}</a>
-                @endforeach
                 <!-- Navbar Search -->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
